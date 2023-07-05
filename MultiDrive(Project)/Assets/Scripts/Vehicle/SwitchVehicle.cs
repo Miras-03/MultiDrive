@@ -6,25 +6,25 @@ namespace Vehicle
     {
         [SerializeField] private VehicleManager vehicleManager;
         [Space]
+
+        [SerializeField] private Car carInstance;
+        [SerializeField] private Plane planeInstance;
+
+        [Space]
         [SerializeField] private GameObject carPrefab;
         [SerializeField] private GameObject planePrefab;
 
-        private void Awake()
-        {
-            vehicleManager = GetComponent<VehicleManager>();
-        }
-
-        private void Start() => SwitchToPlane();
+        private void Awake() => SwitchToPlane();
 
         public void SwitchToCar()
         {
-            vehicleManager.SwitchStrategy(new Car(gameObject.transform));
+            vehicleManager.SwitchStrategy(carInstance, planePrefab.transform);
             SwapPrefabToCar();
         }
 
         public void SwitchToPlane()
         {
-            vehicleManager.SwitchStrategy(new Plane(gameObject.transform));
+            vehicleManager.SwitchStrategy(planeInstance, carPrefab.transform);
             SwapPrefabToPlane();
         }
 

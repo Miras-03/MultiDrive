@@ -6,14 +6,26 @@ namespace Vehicle
     {
         private Vehicle currentVehicle;
 
+        [HideInInspector] public Transform currentPosition;
+
         private void Awake()
-        { 
+        {
             currentVehicle = GetComponent<Vehicle>();
-            currentVehicle = new Plane(gameObject.transform);
+            currentPosition = GetComponent<Transform>();
         }
 
-        private void FixedUpdate() => currentVehicle.Move();
+        private void FixedUpdate()
+        {
+            currentPosition.position = currentVehicle.transform.position;
 
-        public void SwitchStrategy(Vehicle vehicle) => currentVehicle = vehicle;
+            currentVehicle.Move();
+            currentVehicle.Control();
+        }
+
+        public void SwitchStrategy(Vehicle vehicle, Transform previousPosition)
+        {
+            currentVehicle = vehicle;
+            currentVehicle.transform.position = previousPosition.position;
+        }
     }
 }
