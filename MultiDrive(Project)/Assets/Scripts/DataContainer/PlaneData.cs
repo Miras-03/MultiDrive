@@ -8,5 +8,5 @@ public sealed class PlaneData : ScriptableObject
 
     [HideInInspector] public const float yawAmount = 10f;
     [HideInInspector] public const float pitchAmount = 15f;
-    [HideInInspector] public const float rollAmount = 110f;
+    [HideInInspector] public const float rollAmount = 120f;
 }
