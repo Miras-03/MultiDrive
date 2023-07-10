@@ -16,16 +16,17 @@ namespace Vehicle
 
         private void FixedUpdate()
         {
-            currentPosition.position = currentVehicle.transform.position;
+            currentPosition.SetPositionAndRotation(currentVehicle.transform.position, currentVehicle.transform.rotation);
 
             currentVehicle.Move();
             currentVehicle.Control();
         }
 
-        public void SwitchStrategy(Vehicle vehicle, Transform previousPosition)
+        public void SwitchVehicle(Vehicle vehicle, Transform previousTransform)
         {
             currentVehicle = vehicle;
-            currentVehicle.transform.position = previousPosition.position;
+
+            currentVehicle.transform.SetPositionAndRotation(previousTransform.position, previousTransform.rotation);
         }
     }
 }

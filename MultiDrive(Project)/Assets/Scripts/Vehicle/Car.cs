@@ -1,31 +1,37 @@
 using UnityEngine;
 
 namespace Vehicle
-{
-    public class Car : Vehicle
+{ 
+    public class Car : Vehicle, IEnhancable
     {
+        [SerializeField] private FloatingJoystick joystick;
+
+        [Space]
+        [Header("Wheel colliders")]
         [SerializeField] private WheelCollider frontLeftWheelCollider;
         [SerializeField] private WheelCollider frontRightWheelCollider;
         [SerializeField] private WheelCollider backLeftWheelCollider;
         [SerializeField] private WheelCollider backRightWheelCollider;
 
         [Space]
+        [Header("Wheel transforms")]
         [SerializeField] private Transform frontLeftWheelTransform;
         [SerializeField] private Transform frontRightWheelTransform;
         [SerializeField] private Transform backLeftWheelTransform;
         [SerializeField] private Transform backRightWheelTransform;
 
-        [Space]
-        [SerializeField] private FixedJoystick joystick;
+        public Rigidbody rb;
 
-        private const float carSpeed = 5f;
-        private const float motorForce = 1000f;
-        private const float maxSteerAngle = 20f;
+        private const float carSpeed = CarData.carSpeed;
+        private const float motorForce = CarData.motorForce;
+        private const float maxSteerAngle = CarData.maxSteerAngle;
 
         private float horizontalInput;
 
         private float currentSteerAngle;
         private float currentbreakForce;
+
+        private void Start() => rb = GetComponent<Rigidbody>();
 
         public override void Move()
         {
@@ -34,10 +40,7 @@ namespace Vehicle
             HandleMotor();
         }
 
-        public override void Control()
-        {
-            horizontalInput = joystick.Horizontal;
-        }
+        public override void Control() => horizontalInput = joystick.Horizontal;
 
         private void HandleMotor()
         {
@@ -77,5 +80,7 @@ namespace Vehicle
             wheelTransform.rotation = rot;
             wheelTransform.position = pos;
         }
+
+        public void ActivateForce() => rb.AddForce(transform.forward * 50f, ForceMode.VelocityChange);
     }
 }

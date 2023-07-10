@@ -2,29 +2,31 @@ using UnityEngine;
 
 namespace Vehicle
 {
-    public class SwitchVehicle : MonoBehaviour
+    [RequireComponent(typeof(VehicleManager))]
+    public sealed class SwitchVehicle : MonoBehaviour
     {
         [SerializeField] private VehicleManager vehicleManager;
-        [Space]
 
+        [Header("Vehicle intances")]
         [SerializeField] private Car carInstance;
         [SerializeField] private Plane planeInstance;
 
         [Space]
+        [Header("Vehicle prefabs")]
         [SerializeField] private GameObject carPrefab;
         [SerializeField] private GameObject planePrefab;
 
-        private void Awake() => SwitchToPlane();
+        private void Awake() => SwitchToCar();
 
         public void SwitchToCar()
         {
-            vehicleManager.SwitchStrategy(carInstance, planePrefab.transform);
+            vehicleManager.SwitchVehicle(carInstance, planeInstance.transform);
             SwapPrefabToCar();
         }
 
         public void SwitchToPlane()
         {
-            vehicleManager.SwitchStrategy(planeInstance, carPrefab.transform);
+            vehicleManager.SwitchVehicle(planeInstance, carInstance.transform);
             SwapPrefabToPlane();
         }
 

@@ -1,26 +1,37 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace Vehicle
 {
     public class Plane : Vehicle
     {
-        [SerializeField] private FixedJoystick joystick;
-
-        private const float planeSpeed = 5f;
+        [SerializeField] private FloatingJoystick joystick;
 
         private float horizontalInput;
         private float verticalInput;
 
         private float yaw;
-        private const float yawAmount = 20f;
-
         private float pitch;
         private float roll;
 
-        private const float pitchAmount = 10;
-        private const float rollAmount = 10;
+        private const float planeSpeed = PlaneData.planeSpeed;
+        private float smoothSpeed = PlaneData.smoothSpeed;
+
+        private const float yawAmount = PlaneData.yawAmount;
+        private const float pitchAmount = PlaneData.pitchAmount;
+        private const float rollAmount = PlaneData.rollAmount;
+
+        private float currentYawVelocity;
+        private float currentPitchVelocity;
+        private float currentRollVelocity;
+
+        private void OnEnable()
+        {
+            yaw = 0f;
+            currentYawVelocity = 0f;
+            currentPitchVelocity = 0f;
+            currentRollVelocity = 0f;
+        }
 
         public override void Move() => transform.Translate(transform.forward * planeSpeed * Time.fixedDeltaTime);
 
@@ -38,16 +49,11 @@ namespace Vehicle
 
         private void ControlSetting()
         {
-            yaw += horizontalInput * yawAmount * Time.fixedDeltaTime;
-            PitchSetting();
-            RollSetting();
-            YawSetting();
+            yaw = Mathf.SmoothDamp(yaw, horizontalInput * yawAmount, ref currentYawVelocity, smoothSpeed);
+            pitch = Mathf.SmoothDamp(pitch, verticalInput * pitchAmount, ref currentPitchVelocity, smoothSpeed);
+            roll = Mathf.SmoothDamp(roll, -horizontalInput * rollAmount, ref currentRollVelocity, smoothSpeed);
+
+            transform.localRotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward * roll);
         }
-
-        private void YawSetting() => transform.localRotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward*roll);
-
-        private void PitchSetting() => pitch = Mathf.Lerp(0, pitchAmount, Math.Abs(verticalInput)) * Mathf.Sign(verticalInput);
-
-        private void RollSetting() => roll = Mathf.Lerp(0,rollAmount,Mathf.Abs(horizontalInput)) * -Mathf.Sign(horizontalInput);
     }
 }

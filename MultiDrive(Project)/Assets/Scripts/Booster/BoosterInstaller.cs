@@ -1,0 +1,14 @@
+using UnityEngine;
+using Vehicle;
+using Zenject;
+
+public class BoosterInstaller : MonoInstaller
+{
+    [SerializeField] private Car car;
+
+    public override void InstallBindings()
+    {
+        Container.Bind<IEnhancable>().FromInstance(car).AsSingle().NonLazy();
+        Container.Bind<BoosterActivator>().FromComponentInChildren().AsSingle();
+    }
+}
