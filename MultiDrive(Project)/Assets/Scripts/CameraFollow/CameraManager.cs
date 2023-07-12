@@ -6,9 +6,6 @@ public sealed class CameraManager : MonoBehaviour
     [SerializeField] private VehicleManager vehicleManager;
 
     [Space]
-    [SerializeField] private float smoothSpeed = 0.125f;
-
-    [Space]
     [SerializeField] private Vector3 locationOffset;
     [SerializeField] private Vector3 rotationOffset;
 
@@ -19,6 +16,8 @@ public sealed class CameraManager : MonoBehaviour
 
     private const float closerYDistance = 2f;
     private const float farZYistance = 3f;
+
+    private const float smoothSpeed = 0.125f;
 
     private void Start()
     {

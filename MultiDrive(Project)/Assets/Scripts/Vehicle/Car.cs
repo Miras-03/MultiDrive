@@ -1,86 +1,49 @@
 using UnityEngine;
 
 namespace VehicleOption
-{ 
+{
     public class Car : Vehicle, IEnhancable
     {
         [SerializeField] private FloatingJoystick joystick;
+        [SerializeField] private Transform forwardOfGravity;
 
-        [Space]
-        [Header("Wheel colliders")]
-        [SerializeField] private WheelCollider frontLeftWheelCollider;
-        [SerializeField] private WheelCollider frontRightWheelCollider;
-        [SerializeField] private WheelCollider backLeftWheelCollider;
-        [SerializeField] private WheelCollider backRightWheelCollider;
+        private const float moveSpeed = CarData.carSpeed;
+        private const float maxSpeed = CarData.maxSpeed;
+        private const float drag = CarData.drag;
+        private const float steerAngle = CarData.steerAngle;
+        private const float forceNewton = CarData.forceNewton;
+        private const float smoothSpeed = CarData.smoothSpeed;
 
-        [Space]
-        [Header("Wheel transforms")]
-        [SerializeField] private Transform frontLeftWheelTransform;
-        [SerializeField] private Transform frontRightWheelTransform;
-        [SerializeField] private Transform backLeftWheelTransform;
-        [SerializeField] private Transform backRightWheelTransform;
+        private float steerInput;
 
-        public Rigidbody rb;
+        private Vector3 moveForce;
+        private Rigidbody rb;
 
-        private const float carSpeed = CarData.carSpeed;
-        private const float motorForce = CarData.motorForce;
-        private const float maxSteerAngle = CarData.maxSteerAngle;
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody>();
+            rb.centerOfMass = forwardOfGravity.localPosition;
+        }
 
-        private float horizontalInput;
-
-        private float currentSteerAngle;
-        private float currentbreakForce;
-
-        private void Start() => rb = GetComponent<Rigidbody>();
+        public void ActivateForce() => rb.AddForce(transform.forward * forceNewton, ForceMode.Impulse);
 
         public override void Move()
         {
-            HandleSteering();
-            UpdateWheels();
-            HandleMotor();
+            moveForce += transform.forward * moveSpeed * Time.fixedDeltaTime;
+            transform.position += moveForce * Time.fixedDeltaTime;
+            Drag();
         }
 
-        public override void Control() => horizontalInput = joystick.Horizontal;
-
-        private void HandleMotor()
+        public override void Control()
         {
-            frontLeftWheelCollider.motorTorque = carSpeed * motorForce * Time.fixedDeltaTime;
-            frontRightWheelCollider.motorTorque = carSpeed * motorForce * Time.fixedDeltaTime;
-            ApplyBreaking();
+            steerInput = joystick.Horizontal * smoothSpeed;
+            transform.Rotate(Vector3.up * steerInput * moveForce.magnitude * steerAngle * Time.fixedDeltaTime);
         }
 
-        private void ApplyBreaking()
+        private void Drag()
         {
-            frontRightWheelCollider.brakeTorque = currentbreakForce;
-            frontLeftWheelCollider.brakeTorque = currentbreakForce;
-            backLeftWheelCollider.brakeTorque = currentbreakForce;
-            backRightWheelCollider.brakeTorque = currentbreakForce;
+            moveForce *= drag;
+            moveForce = Vector3.ClampMagnitude(moveForce, maxSpeed);
         }
-
-        private void HandleSteering()
-        {
-            currentSteerAngle = maxSteerAngle * horizontalInput;
-            frontLeftWheelCollider.steerAngle = currentSteerAngle;
-            frontRightWheelCollider.steerAngle = currentSteerAngle;
-        }
-
-        private void UpdateWheels()
-        {
-            UpdateSingleWheel(frontLeftWheelCollider, frontLeftWheelTransform);
-            UpdateSingleWheel(frontRightWheelCollider, frontRightWheelTransform);
-            UpdateSingleWheel(backRightWheelCollider, backRightWheelTransform);
-            UpdateSingleWheel(backLeftWheelCollider, backLeftWheelTransform);
-        }
-
-        private void UpdateSingleWheel(WheelCollider wheelCollider, Transform wheelTransform)
-        {
-            Vector3 pos;
-            Quaternion rot;
-            wheelCollider.GetWorldPose(out pos, out rot);
-            wheelTransform.rotation = rot;
-            wheelTransform.position = pos;
-        }
-
-        public void ActivateForce() => rb.AddForce(transform.forward * 50f, ForceMode.VelocityChange);
     }
 }
