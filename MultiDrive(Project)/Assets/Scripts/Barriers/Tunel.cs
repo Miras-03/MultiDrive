@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class Tunel : MonoBehaviour, IRotable
+namespace Tunel
 {
-    private const float speed = 5f;
+    public sealed class Tunel : MonoBehaviour, IRotable
+    {
+        private const float speed = 5f;
 
-    private void FixedUpdate() => Rotate();
+        private void FixedUpdate() => Rotate();
 
-    public void Rotate() => transform.Rotate(0f, speed * Time.fixedDeltaTime, 0f);
+        public void Rotate() => transform.Rotate(0f, speed * Time.fixedDeltaTime, 0f);
+    }
 }

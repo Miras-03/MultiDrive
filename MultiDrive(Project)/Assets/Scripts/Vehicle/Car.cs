@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Vehicle
+namespace VehicleOption
 { 
     public class Car : Vehicle, IEnhancable
     {

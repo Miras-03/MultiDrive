@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Vehicle
+namespace VehicleOption
 {
     public class Plane : Vehicle
     {

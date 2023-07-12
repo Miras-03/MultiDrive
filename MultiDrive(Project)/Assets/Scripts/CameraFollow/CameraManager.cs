@@ -1,5 +1,5 @@
 using UnityEngine;
-using Vehicle;
+using VehicleOption;
 
 public sealed class CameraManager : MonoBehaviour
 {

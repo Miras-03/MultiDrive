@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Vehicle
+namespace VehicleOption
 {
     public abstract class Vehicle : MonoBehaviour
     {

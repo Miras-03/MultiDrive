@@ -1,10 +1,23 @@
 using UnityEngine;
 using Zenject;
+using Tunel;
 
-public sealed class BoosterActivator : MonoBehaviour
+namespace Booster
 {
-    [Inject]
-    private IEnhancable enhance;
+    [RequireComponent(typeof(TunelController))]
+    public sealed class BoosterActivator : MonoBehaviour
+    {
+        [Inject]
+        private IEnhancable enhance;
 
-    private void OnCollisionEnter(Collision collision) => enhance.ActivateForce();
+        [SerializeField] private TunelController tunelController;
+
+        private void Start() => tunelController.TurnRotateOff();
+
+        private void OnTriggerEnter()
+        {
+            enhance.ActivateForce();
+            tunelController.TurnRotateOn();
+        }
+    }
 }

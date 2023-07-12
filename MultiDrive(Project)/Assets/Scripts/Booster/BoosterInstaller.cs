@@ -1,5 +1,6 @@
 using UnityEngine;
-using Vehicle;
+using VehicleOption;
+using Booster;
 using Zenject;
 
 public class BoosterInstaller : MonoInstaller

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Vehicle
+namespace VehicleOption
 {
     [RequireComponent(typeof(VehicleManager))]
     public sealed class SwitchVehicle : MonoBehaviour
