@@ -5,7 +5,7 @@ namespace VehicleOption
     public class Car : Vehicle, IEnhancable
     {
         [SerializeField] private FloatingJoystick joystick;
-        [SerializeField] private Transform forwardOfGravity;
+        [SerializeField] private Transform centerOfGravity;
 
         private const float moveSpeed = CarData.carSpeed;
         private const float maxSpeed = CarData.maxSpeed;
@@ -22,7 +22,7 @@ namespace VehicleOption
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
-            rb.centerOfMass = forwardOfGravity.localPosition;
+            rb.centerOfMass = centerOfGravity.localPosition;
         }
 
         public void ActivateForce() => rb.AddForce(transform.forward * forceNewton, ForceMode.Impulse);

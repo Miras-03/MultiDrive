@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Tunel
 {
-    public sealed class Tunel : MonoBehaviour, IRotable
+    public sealed class Tunel : MonoBehaviour
     {
-        private const float speed = 5f;
+        private const float speed = 10f;
 
         private void FixedUpdate() => Rotate();
 

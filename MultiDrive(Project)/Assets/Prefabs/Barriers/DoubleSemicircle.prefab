@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6457741811556435040}
   - component: {fileID: 5538585138086567100}
   - component: {fileID: 888590414245698792}
+  - component: {fileID: 7545184853450012966}
   m_Layer: 0
   m_Name: Semicircle (1)
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425605938439746797}
   m_Mesh: {fileID: 0}
+--- !u!65 &7545184853450012966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425605938439746797}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.535385, y: 2.0000024, z: 28.629269}
+  m_Center: {x: 0.00000047683807, y: 0, z: -4.547479e-13}
 --- !u!1 &3682251740414429969
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +108,7 @@ GameObject:
   - component: {fileID: 8920117459640407516}
   - component: {fileID: 7252713867709755536}
   - component: {fileID: 2448428614403637132}
+  - component: {fileID: 1428754800244477452}
   m_Layer: 0
   m_Name: Semicircle (2)
   m_TagString: Untagged
@@ -166,6 +181,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3682251740414429969}
   m_Mesh: {fileID: 0}
+--- !u!65 &1428754800244477452
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682251740414429969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.535385, y: 2.0000024, z: 28.629269}
+  m_Center: {x: 9.094947e-13, y: -0.000061035156, z: -0.0000019073482}
 --- !u!1 &5951874153210662646
 GameObject:
   m_ObjectHideFlags: 0

@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 2972150939877168779}
   - component: {fileID: 2972150939877168776}
   - component: {fileID: 2972150939877168774}
+  - component: {fileID: 4224363710727283901}
   - component: {fileID: 2972150939877168778}
   m_Layer: 0
   m_Name: Plane
@@ -194,6 +195,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df462d3329e68df479b8a0ff38a13896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tunelController: {fileID: 0}
+--- !u!114 &4224363710727283901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2972150939877168772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb612c7a5ca8ff4aa2c470ce46cc41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &2972150939877168778

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2904528161100470279}
   - component: {fileID: 2904528161100470278}
   - component: {fileID: 2904528161100470392}
+  - component: {fileID: 2565390159725845748}
   m_Layer: 0
   m_Name: Semicircle
   m_TagString: Untagged
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2904528161100470395}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0.020000458, y: -296.7403, z: -7.839966}
   m_LocalScale: {x: 0.7754133, y: 0.77541304, z: 0.7754127}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -180}
 --- !u!23 &2904528161100470278
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -83,3 +84,16 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2904528161100470395}
   m_Mesh: {fileID: 0}
+--- !u!65 &2565390159725845748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904528161100470395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.535387, y: 2.0000026, z: 28.629251}
+  m_Center: {x: 1.1368684e-12, y: 0.000061035156, z: -0.00000095367386}

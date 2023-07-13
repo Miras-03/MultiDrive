@@ -1,10 +1,14 @@
+using Particle;
 using UnityEngine;
+using Zenject;
 
 namespace VehicleOption
 {
     [RequireComponent(typeof(VehicleManager))]
     public sealed class SwitchVehicle : MonoBehaviour
     {
+        [Inject] private ParticleSystemManager particleSystemManager;
+
         [SerializeField] private VehicleManager vehicleManager;
 
         [Header("Vehicle intances")]
@@ -21,12 +25,14 @@ namespace VehicleOption
         public void SwitchToCar()
         {
             vehicleManager.SwitchVehicle(carInstance, planeInstance.transform);
+            particleSystemManager.PlayParticleSystem();
             SwapPrefabToCar();
         }
 
         public void SwitchToPlane()
         {
             vehicleManager.SwitchVehicle(planeInstance, carInstance.transform);
+            particleSystemManager.PlayParticleSystem();
             SwapPrefabToPlane();
         }
 
