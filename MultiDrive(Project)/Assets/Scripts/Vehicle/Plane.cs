@@ -1,11 +1,14 @@
-using System;
 using UnityEngine;
+using Health;
 
 namespace VehicleOption
 {
-    public class Plane : Vehicle
+    public class Plane : Vehicle, IDieableObserver
     {
-        [SerializeField] private FloatingJoystick joystick;
+        [SerializeField] private HealthController healthController;
+        [SerializeField] private FloatingJoystick floatingJoystick;
+
+        private Rigidbody rb;
 
         private float horizontalInput;
         private float verticalInput;
@@ -25,6 +28,10 @@ namespace VehicleOption
         private float currentPitchVelocity;
         private float currentRollVelocity;
 
+        private const int damageValue = 5;
+
+        private void Awake() => rb = GetComponent<Rigidbody>();
+
         private void OnEnable()
         {
             yaw = 0f;
@@ -33,7 +40,11 @@ namespace VehicleOption
             currentRollVelocity = 0f;
         }
 
-        public override void Move() => transform.Translate(transform.forward * planeSpeed * Time.fixedDeltaTime);
+        public override void Move()
+        {
+            Vector3 movement = transform.forward * planeSpeed * Time.fixedDeltaTime;
+            rb.MovePosition(rb.position + movement);
+        }
 
         public override void Control()
         {
@@ -43,8 +54,8 @@ namespace VehicleOption
 
         private void InputOfJoystick()
         {
-            horizontalInput = joystick.Horizontal;
-            verticalInput = joystick.Vertical;
+            horizontalInput = floatingJoystick.Horizontal;
+            verticalInput = floatingJoystick.Vertical;
         }
 
         private void ControlSetting()
@@ -55,5 +66,9 @@ namespace VehicleOption
 
             transform.localRotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward * roll);
         }
+
+        private void OnCollisionEnter() => healthController.TakeDamage(damageValue);
+
+        public void OnHealthOver() => Destroy(gameObject);
     }
 }

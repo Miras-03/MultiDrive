@@ -1,8 +1,9 @@
+using Health;
 using UnityEngine;
 
 namespace VehicleOption
 {
-    public class VehicleManager : MonoBehaviour
+    public class VehicleManager : MonoBehaviour, IDieableObserver
     {
         private Vehicle currentVehicle;
 
@@ -28,5 +29,7 @@ namespace VehicleOption
 
             currentVehicle.transform.SetPositionAndRotation(previousTransform.position, previousTransform.rotation);
         }
+
+        public void OnHealthOver() => Destroy(gameObject);
     }
 }

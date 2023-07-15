@@ -1,7 +1,8 @@
 using UnityEngine;
 using VehicleOption;
+using Health;
 
-public sealed class CameraManager : MonoBehaviour
+public sealed class CameraManager : MonoBehaviour, IDieableObserver
 {
     [SerializeField] private VehicleManager vehicleManager;
 
@@ -47,4 +48,6 @@ public sealed class CameraManager : MonoBehaviour
         locationOffset.z = farZDistance;
         locationOffset.y = farZYistance;
     }
+
+    public void OnHealthOver() => this.enabled = false;
 }

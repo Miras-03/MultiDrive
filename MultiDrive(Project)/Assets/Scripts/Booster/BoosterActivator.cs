@@ -4,7 +4,6 @@ using Tunel;
 
 namespace Booster
 {
-    [RequireComponent(typeof(TunelController))]
     public sealed class BoosterActivator : MonoBehaviour
     {
         [Inject]

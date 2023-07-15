@@ -4,9 +4,9 @@ using UnityEngine;
 public sealed class PlaneData : ScriptableObject
 {
     [HideInInspector] public const float planeSpeed = 20f;
-    [HideInInspector] public const float smoothSpeed = 1f;
+    [HideInInspector] public const float smoothSpeed = 0.9f;
 
-    [HideInInspector] public const float yawAmount = 10f;
-    [HideInInspector] public const float pitchAmount = 15f;
+    [HideInInspector] public const float yawAmount = 12f;
+    [HideInInspector] public const float pitchAmount = 25f;
     [HideInInspector] public const float rollAmount = 120f;
 }
