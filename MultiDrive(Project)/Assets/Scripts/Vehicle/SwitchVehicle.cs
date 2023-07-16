@@ -21,7 +21,7 @@ namespace VehicleOption
 
         private void Awake() => vehicleManager = GetComponent<VehicleManager>();
 
-        private void Start() => SwitchToPlane();
+        private void Start() => StartVehicle();
 
         public void StartVehicle()
         {

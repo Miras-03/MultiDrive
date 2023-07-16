@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 using Health;
-using VehicleOption;
+using System.Collections;
 
 namespace Particle
 {
@@ -17,6 +17,12 @@ namespace Particle
         public void OnHealthOver()
         {
             PlayParticleSystem();
+            DestroyParticleSystem();
+        }
+
+        IEnumerator DestroyParticleSystem()
+        {
+            yield return null;
             Destroy(gameObject);
         }
     }

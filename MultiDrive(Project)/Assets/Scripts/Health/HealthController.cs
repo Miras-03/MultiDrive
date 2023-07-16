@@ -10,7 +10,7 @@ namespace Health
         [SerializeField] private PlayerHUD playerHUD;
 
         [SerializeField] private VehicleManager vehicleManager;
-        [SerializeField] private Car car;
+        [SerializeField] private CarBurst carBurst;
         [SerializeField] private VehicleOption.Plane plane;
         [SerializeField] private PlaneBurst planeBurst;
         [SerializeField] private CameraManager cameraManager;
@@ -22,7 +22,7 @@ namespace Health
             playerHealth.AddChangeObserver(playerHUD);
 
             playerHealth.AddDieObserver(vehicleManager);
-            playerHealth.AddDieObserver(car);
+            playerHealth.AddDieObserver(carBurst);
             playerHealth.AddDieObserver(plane);
             playerHealth.AddDieObserver(planeBurst);
             playerHealth.AddDieObserver(cameraManager);

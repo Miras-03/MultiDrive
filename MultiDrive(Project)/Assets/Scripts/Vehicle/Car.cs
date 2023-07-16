@@ -4,7 +4,7 @@ using Health;
 namespace VehicleOption
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Car : Vehicle, IEnhancable, IDieableObserver
+    public class Car : Vehicle, IEnhancable
     {
         [SerializeField] private Transform centerOfGravity;
         [SerializeField] private HealthController healthController;
@@ -63,18 +63,10 @@ namespace VehicleOption
             moveForce = Vector3.ClampMagnitude(moveForce, maxSpeed);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnCollisionStay(Collision collision)
         {
             if (collision.collider.CompareTag("Barrier"))
                 healthController.TakeDamage(damageValue);
-        }
-
-        public void OnHealthOver()
-        {
-            if (gameObject.activeSelf)
-            {
-                Destroy(this);
-            }
         }
     }
 }

@@ -5,8 +5,8 @@ namespace VehicleOption
 {
     public class PlaneBurst : MonoBehaviour, IDieableObserver
     {
-        [SerializeField] private Material[] materials;
-        [SerializeField] private GameObject muffler;
+        [SerializeField] private GameObject[] skeletons;
+        [SerializeField] private GameObject smoke;
 
         private Rigidbody rb;
 
@@ -14,19 +14,22 @@ namespace VehicleOption
 
         public void OnHealthOver()
         {
-            TurnOffEngine();
-            TurnOffMuffler();
-            ChangeColor();
-            Destroy(this);
+            if (gameObject.activeSelf)
+            {
+                TurnOffEngine();
+                TurnOffMuffler();
+                ChangeSkeleton();
+                Destroy(this);
+            }
         }
 
-        private void ChangeColor()
+        private void ChangeSkeleton()
         {
-            foreach (Material material in materials)
-                material.color = Color.black;
+            skeletons[0].SetActive(false);
+            skeletons[1].SetActive(true);
         }
 
-        private void TurnOffMuffler() => muffler?.SetActive(false);
+        private void TurnOffMuffler() => smoke?.SetActive(false);
 
         private void TurnOffEngine() => rb.useGravity = true;
     }
