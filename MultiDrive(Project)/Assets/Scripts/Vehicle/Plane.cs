@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Health;
 
 namespace VehicleOption
@@ -68,7 +69,8 @@ namespace VehicleOption
         }
 
         private void OnCollisionEnter() => healthController.TakeDamage(damageValue);
+        private void OnCollisionStay() => healthController.TakeDamage(damageValue);
 
-        public void OnHealthOver() => Destroy(gameObject);
+        public void OnHealthOver() => Destroy(this);
     }
 }

@@ -33,14 +33,15 @@ namespace VehicleOption
             rb.centerOfMass = centerOfGravity.localPosition;
         }
 
-        private void OnEnable() => ResetVelocityProperties();
+        private void OnEnable() => ResetProperties();
 
         public void ActivateForce() => rb.AddForce(transform.forward * forceNewton, ForceMode.Impulse);
 
-        public void ResetVelocityProperties()
+        public void ResetProperties()
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+            transform.rotation = Quaternion.identity;
         }
 
         public override void Move()
@@ -68,6 +69,12 @@ namespace VehicleOption
                 healthController.TakeDamage(damageValue);
         }
 
-        public void OnHealthOver() => Destroy(gameObject);
+        public void OnHealthOver()
+        {
+            if (gameObject.activeSelf)
+            {
+                Destroy(this);
+            }
+        }
     }
 }

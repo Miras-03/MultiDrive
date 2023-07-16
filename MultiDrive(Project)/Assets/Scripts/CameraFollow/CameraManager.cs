@@ -49,5 +49,5 @@ public sealed class CameraManager : MonoBehaviour, IDieableObserver
         locationOffset.y = farZYistance;
     }
 
-    public void OnHealthOver() => this.enabled = false;
+    public void OnHealthOver() => Destroy(this);
 }

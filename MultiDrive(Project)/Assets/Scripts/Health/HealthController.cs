@@ -1,3 +1,4 @@
+using Particle;
 using UnityEngine;
 using VehicleOption;
 
@@ -11,7 +12,9 @@ namespace Health
         [SerializeField] private VehicleManager vehicleManager;
         [SerializeField] private Car car;
         [SerializeField] private VehicleOption.Plane plane;
+        [SerializeField] private PlaneBurst planeBurst;
         [SerializeField] private CameraManager cameraManager;
+        [SerializeField] private ParticleSystemManager explosion;
 
         private void Awake()
         {
@@ -19,9 +22,11 @@ namespace Health
             playerHealth.AddChangeObserver(playerHUD);
 
             playerHealth.AddDieObserver(vehicleManager);
-            playerHealth.AddDieObserver(plane);
             playerHealth.AddDieObserver(car);
+            playerHealth.AddDieObserver(plane);
+            playerHealth.AddDieObserver(planeBurst);
             playerHealth.AddDieObserver(cameraManager);
+            playerHealth.AddDieObserver(explosion);
         }
 
         public void SetMaxValue(int value) => playerHealth.Health = value;

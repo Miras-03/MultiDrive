@@ -1,5 +1,5 @@
-using Health;
 using UnityEngine;
+using Health;
 
 namespace VehicleOption
 {
@@ -26,10 +26,9 @@ namespace VehicleOption
         public void SwitchVehicle(Vehicle vehicle, Transform previousTransform)
         {
             currentVehicle = vehicle;
-
-            currentVehicle.transform.SetPositionAndRotation(previousTransform.position, previousTransform.rotation);
+            currentVehicle.transform.position = previousTransform.position;
         }
 
-        public void OnHealthOver() => Destroy(gameObject);
+        public void OnHealthOver() => Destroy(this);
     }
 }

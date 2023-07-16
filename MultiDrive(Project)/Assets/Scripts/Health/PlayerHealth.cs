@@ -15,7 +15,7 @@ namespace Health
             get => health; 
             set
             {
-                if (value > healthOverValue && value != health)
+                if (value >= healthOverValue && value != health)
                 {
                     health = value;
                     NotifyObserversAboutChange();

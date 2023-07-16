@@ -4,12 +4,11 @@ using Zenject;
 
 namespace VehicleOption
 {
-    [RequireComponent(typeof(VehicleManager))]
     public sealed class SwitchVehicle : MonoBehaviour
     {
         [Inject] private ParticleSystemManager particleSystemManager;
 
-        [SerializeField] private VehicleManager vehicleManager;
+        private VehicleManager vehicleManager;
 
         [Header("Vehicle intances")]
         [SerializeField] private Car carInstance;
@@ -20,7 +19,15 @@ namespace VehicleOption
         [SerializeField] private GameObject carPrefab;
         [SerializeField] private GameObject planePrefab;
 
-        private void Awake() => SwitchToCar();
+        private void Awake() => vehicleManager = GetComponent<VehicleManager>();
+
+        private void Start() => SwitchToPlane();
+
+        public void StartVehicle()
+        {
+            vehicleManager.SwitchVehicle(carInstance, planeInstance.transform);
+            SwapPrefabToCar();
+        }
 
         public void SwitchToCar()
         {
