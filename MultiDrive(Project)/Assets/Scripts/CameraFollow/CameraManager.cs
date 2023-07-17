@@ -7,23 +7,26 @@ public sealed class CameraManager : MonoBehaviour, IDieableObserver
     [SerializeField] private VehicleManager vehicleManager;
 
     [Space]
-    [SerializeField] private Vector3 locationOffset;
-    [SerializeField] private Vector3 rotationOffset;
+    private Vector3 locationOffset;
+    private Vector3 rotationOffset;
 
     private Transform target;
 
-    private const float closerZDistance = -4f;
-    private const float farZDistance = -6f;
-
-    private const float closerYDistance = 2f;
     private const float farZYistance = 3f;
+    private const float farZDistance = -7f;
+
+    private const float closerYDistance = 3f;
+    private const float closerZDistance = -5f;
+
+    private const float rotationXValue = 12f;
 
     private const float smoothSpeed = 0.125f;
 
     private void Start()
     {
         target = vehicleManager.currentPosition;
-        MoveCameraAway();
+        rotationOffset.x = rotationXValue;
+        MoveCameraCloser();
     }
 
     private void FixedUpdate()

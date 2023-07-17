@@ -1,6 +1,7 @@
 using Particle;
 using UnityEngine;
 using VehicleOption;
+using Health.HUD;
 
 namespace Health
 {
@@ -8,6 +9,8 @@ namespace Health
     {
         private PlayerHealth playerHealth;
         [SerializeField] private PlayerHUD playerHUD;
+        [SerializeField] private ChangeColorOfPlayerHUD changeColorOfPlayerHUD;
+        [SerializeField] private HUDShake hudShake;
 
         [SerializeField] private VehicleManager vehicleManager;
         [SerializeField] private CarBurst carBurst;
@@ -20,13 +23,15 @@ namespace Health
         {
             playerHealth = new PlayerHealth();
             playerHealth.AddChangeObserver(playerHUD);
+            playerHealth.AddChangeObserver(changeColorOfPlayerHUD);
+            playerHealth.AddChangeObserver(hudShake);
 
-            playerHealth.AddDieObserver(vehicleManager);
-            playerHealth.AddDieObserver(carBurst);
-            playerHealth.AddDieObserver(plane);
-            playerHealth.AddDieObserver(planeBurst);
-            playerHealth.AddDieObserver(cameraManager);
-            playerHealth.AddDieObserver(explosion);
+            playerHealth.AddDieableObserver(vehicleManager);
+            playerHealth.AddDieableObserver(carBurst);
+            playerHealth.AddDieableObserver(plane);
+            playerHealth.AddDieableObserver(planeBurst);
+            playerHealth.AddDieableObserver(cameraManager);
+            playerHealth.AddDieableObserver(explosion);
         }
 
         public void SetMaxValue(int value) => playerHealth.Health = value;

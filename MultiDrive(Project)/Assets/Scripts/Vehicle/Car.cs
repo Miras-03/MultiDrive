@@ -11,7 +11,7 @@ namespace VehicleOption
 
         [SerializeField] private FloatingJoystick floatingJoystick;
 
-        private const float moveSpeed = CarData.carSpeed;
+        [HideInInspector] public float moveSpeed = CarData.carSpeed;
         private const float maxSpeed = CarData.maxSpeed;
         private const float drag = CarData.drag;
         private const float steerAngle = CarData.steerAngle;

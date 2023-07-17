@@ -6,6 +6,8 @@ namespace VehicleOption
 {
     public sealed class SwitchVehicle : MonoBehaviour
     {
+        [SerializeField] private CameraManager cameraManager;
+
         [Inject] private ParticleSystemManager particleSystemManager;
 
         private VehicleManager vehicleManager;
@@ -27,6 +29,8 @@ namespace VehicleOption
         {
             vehicleManager.SwitchVehicle(carInstance, planeInstance.transform);
             SwapPrefabToCar();
+
+            cameraManager.MoveCameraCloser();
         }
 
         public void SwitchToCar()
@@ -34,6 +38,8 @@ namespace VehicleOption
             vehicleManager.SwitchVehicle(carInstance, planeInstance.transform);
             particleSystemManager.PlayParticleSystem();
             SwapPrefabToCar();
+
+            cameraManager.MoveCameraCloser();
         }
 
         public void SwitchToPlane()
@@ -41,6 +47,8 @@ namespace VehicleOption
             vehicleManager.SwitchVehicle(planeInstance, carInstance.transform);
             particleSystemManager.PlayParticleSystem();
             SwapPrefabToPlane();
+
+            cameraManager.MoveCameraAway();
         }
 
         private void SwapPrefabToCar()

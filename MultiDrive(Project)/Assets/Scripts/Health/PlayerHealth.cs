@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Health
@@ -15,7 +16,7 @@ namespace Health
             get => health; 
             set
             {
-                if (value >= healthOverValue && value != health)
+                if (value >= healthOverValue)
                 {
                     health = value;
                     NotifyObserversAboutChange();
@@ -28,8 +29,8 @@ namespace Health
         public void AddChangeObserver(IHealthObserver observer) => healthChangeObservers.Add(observer);
         public void RemoveChangeObserver(IHealthObserver observer) => healthChangeObservers.Remove(observer);
 
-        public void AddDieObserver(IDieableObserver observer) => dieableObservers.Add(observer);
-        public void RemoveDieObserver(IDieableObserver observer) => dieableObservers.Remove(observer);
+        public void AddDieableObserver(IDieableObserver observer) => dieableObservers.Add(observer);
+        public void RemoveDieableObservers(IDieableObserver observer) => dieableObservers.Remove(observer);
 
         private void NotifyObserversAboutChange()
         {

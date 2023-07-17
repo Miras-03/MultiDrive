@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 using Health;
 
 namespace VehicleOption
@@ -9,11 +10,10 @@ namespace VehicleOption
 
         [HideInInspector] public Transform currentPosition;
 
-        private void Awake()
-        {
-            currentVehicle = GetComponent<Vehicle>();
-            currentPosition = GetComponent<Transform>();
-        }
+        [Inject]
+        public void Construct(Vehicle vehicle) => currentVehicle = vehicle;
+
+        private void Awake() => currentPosition = GetComponent<Transform>();
 
         private void FixedUpdate()
         {
