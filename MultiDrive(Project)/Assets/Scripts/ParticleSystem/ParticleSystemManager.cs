@@ -5,14 +5,14 @@ using System.Collections;
 
 namespace Particle
 {
-    public class ParticleSystemManager : MonoBehaviour, IDieableObserver
+    public class ParticleSystemManager : MonoBehaviour, IDieableObserver, ISwitchable
     {   
-        private ParticleSystem particleSystem;
+        private ParticleSystem particle;
 
         [Inject]
-        private void Construct(ParticleSystem particleSystem) => this.particleSystem = particleSystem;
+        private void Construct(ParticleSystem particleSystem) => this.particle = particleSystem;
 
-        public void PlayParticleSystem() => particleSystem.Play();
+        public void PlayParticleSystem() => particle.Play();
 
         public void OnHealthOver()
         {
@@ -25,5 +25,8 @@ namespace Particle
             yield return null;
             Destroy(gameObject);
         }
+
+        public void SwitchToCar() => PlayParticleSystem();
+        public void SwitchToPlane() => PlayParticleSystem();
     }
 }

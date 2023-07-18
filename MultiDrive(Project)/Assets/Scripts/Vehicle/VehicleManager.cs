@@ -4,7 +4,7 @@ using Health;
 
 namespace VehicleOption
 {
-    public class VehicleManager : MonoBehaviour, IDieableObserver
+    public sealed class VehicleManager : MonoBehaviour, IDieableObserver
     {
         private Vehicle currentVehicle;
 

@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class Confetti : MonoBehaviour
+namespace Particle
 {
-    [SerializeField] private ParticleSystem confetti;
+    public class Confetti : MonoBehaviour
+    {
+        [SerializeField] private ParticleSystem confetti;
 
-    private void OnTriggerEnter() => confetti.Play();
+        private void OnTriggerEnter() => confetti.Play();
+    }
 }

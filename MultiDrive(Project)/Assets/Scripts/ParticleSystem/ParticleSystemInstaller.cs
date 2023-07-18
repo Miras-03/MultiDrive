@@ -2,13 +2,16 @@ using UnityEngine;
 using Zenject;
 using Particle;
 
-public class ParticleSystemInstaller : MonoInstaller
+namespace Particle
 {
-    [SerializeField] private ParticleSystem particleSystemPrefab;
-
-    public override void InstallBindings()
+    public class ParticleSystemInstaller : MonoInstaller
     {
-        Container.Bind<ParticleSystem>().FromInstance(particleSystemPrefab).AsSingle().NonLazy();
-        Container.Bind<ParticleSystemManager>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+        [SerializeField] private ParticleSystem particleSystemPrefab;
+
+        public override void InstallBindings()
+        {
+            Container.Bind<ParticleSystem>().FromInstance(particleSystemPrefab).AsSingle().NonLazy();
+            Container.Bind<ParticleSystemManager>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
+        }
     }
 }

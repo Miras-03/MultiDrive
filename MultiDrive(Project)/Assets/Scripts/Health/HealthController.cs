@@ -2,6 +2,7 @@ using Particle;
 using UnityEngine;
 using VehicleOption;
 using Health.HUD;
+using CameraOption;
 
 namespace Health
 {

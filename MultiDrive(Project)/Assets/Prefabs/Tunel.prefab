@@ -138,8 +138,10 @@ GameObject:
   - component: {fileID: 1031643707939783914}
   - component: {fileID: 1031643707939783917}
   - component: {fileID: 1031643707939783916}
-  - component: {fileID: 1031643707939783919}
   - component: {fileID: 1031643707939783918}
+  - component: {fileID: 1207984709}
+  - component: {fileID: 1207984708}
+  - component: {fileID: 5515523898703231724}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -212,19 +214,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031643707939783913}
   m_Mesh: {fileID: 0}
---- !u!114 &1031643707939783919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031643707939783913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326e383dd5291724e8bcd398f88e0bc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchVehicle: {fileID: 0}
 --- !u!65 &1031643707939783918
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -238,6 +227,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15, y: 1.0000002, z: 15.000004}
   m_Center: {x: 0, y: 0.000061005354, z: 0}
+--- !u!114 &1207984709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643707939783913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e69ab9bef626e49b4a1e6abd56cd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchCamera: {fileID: 1207984708}
+  switchVehicle: {fileID: 0}
+  switchPrefabOfVehicle: {fileID: 0}
+--- !u!114 &1207984708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643707939783913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80acc60a491e6224eb265fc59daab8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraManager: {fileID: 0}
+--- !u!114 &5515523898703231724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643707939783913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326e383dd5291724e8bcd398f88e0bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefab: {fileID: 0}
+  planePrefab: {fileID: 0}
 --- !u!1 &1031643708177477839
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +840,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031643709118239648}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 12, y: 18.9, z: 750}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1272,8 +1303,10 @@ GameObject:
   - component: {fileID: 1031643709858381384}
   - component: {fileID: 1031643709858381383}
   - component: {fileID: 1031643709858381382}
-  - component: {fileID: 1031643709858381386}
   - component: {fileID: 1031643709858381385}
+  - component: {fileID: 17511478}
+  - component: {fileID: 17511477}
+  - component: {fileID: 6016034881952314344}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -1346,19 +1379,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031643709858381380}
   m_Mesh: {fileID: 0}
---- !u!114 &1031643709858381386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031643709858381380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326e383dd5291724e8bcd398f88e0bc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  switchVehicle: {fileID: 0}
 --- !u!65 &1031643709858381385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1372,6 +1392,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 15, y: 1.0000002, z: 15.000004}
   m_Center: {x: 0, y: -0.00000002980233, z: 0}
+--- !u!114 &17511478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643709858381380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e69ab9bef626e49b4a1e6abd56cd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchCamera: {fileID: 17511477}
+  switchVehicle: {fileID: 0}
+  switchPrefabOfVehicle: {fileID: 0}
+--- !u!114 &17511477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643709858381380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80acc60a491e6224eb265fc59daab8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraManager: {fileID: 0}
+--- !u!114 &6016034881952314344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031643709858381380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326e383dd5291724e8bcd398f88e0bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefab: {fileID: 0}
+  planePrefab: {fileID: 0}
 --- !u!1001 &1031643707990217636
 PrefabInstance:
   m_ObjectHideFlags: 0
