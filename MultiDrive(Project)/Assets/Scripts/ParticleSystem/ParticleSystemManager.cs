@@ -5,14 +5,20 @@ using System.Collections;
 
 namespace Particle
 {
-    public class ParticleSystemManager : MonoBehaviour, IDieableObserver, ISwitchable
-    {   
+    public sealed class ParticleSystemManager : MonoBehaviour, IDieableObserver, ISwitchable, ISoundable
+    {
+        [SerializeField] private AudioSource explosionSound;
+
         private ParticleSystem particle;
 
         [Inject]
         private void Construct(ParticleSystem particleSystem) => this.particle = particleSystem;
 
-        public void PlayParticleSystem() => particle.Play();
+        public void PlayParticleSystem()
+        {
+            particle.Play();
+            Sound(explosionSound);
+        }
 
         public void OnHealthOver()
         {
@@ -28,5 +34,7 @@ namespace Particle
 
         public void SwitchToCar() => PlayParticleSystem();
         public void SwitchToPlane() => PlayParticleSystem();
+
+        public void Sound(AudioSource sound) => sound.Play();
     }
 }

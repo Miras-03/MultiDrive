@@ -3,10 +3,11 @@ using Health;
 
 namespace VehicleOption
 {
-    public class Plane : Vehicle, IDieableObserver
+    public class Plane : Vehicle, IDieableObserver, ISoundable
     {
         [SerializeField] private HealthController healthController;
         [SerializeField] private FloatingJoystick floatingJoystick;
+        [SerializeField] private AudioSource damage;
 
         private Rigidbody rb;
 
@@ -67,8 +68,14 @@ namespace VehicleOption
             transform.localRotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward * roll);
         }
 
-        private void OnCollisionEnter() => healthController.TakeDamage(damageValue);
+        private void OnCollisionEnter()
+        {
+            Sound(damage);
+            healthController.TakeDamage(damageValue);
+        }
 
         public void OnHealthOver() => Destroy(this);
+
+        public void Sound(AudioSource sound) => sound.Play();
     }
 }

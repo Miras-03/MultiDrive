@@ -1,5 +1,6 @@
-using Particle;
 using UnityEngine;
+using Audio.Engine;
+using Particle;
 
 namespace SwitchOption
 {
@@ -7,10 +8,12 @@ namespace SwitchOption
     {
         private Switcher switchVehicleProperties;
 
+        [Header("SwitchObservers")]
         [SerializeField] private SwitchCamera switchCamera;
         [SerializeField] private SwitchVehicle switchVehicle;
         [SerializeField] private SwitchPrefabOfVehicle switchPrefabOfVehicle;
         [SerializeField] private ParticleSystemManager particleSystemManager;
+        [SerializeField] private EngineController engineController;
 
         private void Awake()
         {
@@ -20,6 +23,7 @@ namespace SwitchOption
             switchVehicleProperties.AddSwitchObservers(switchVehicle);
             switchVehicleProperties.AddSwitchObservers(switchPrefabOfVehicle);
             switchVehicleProperties.AddSwitchObservers(particleSystemManager);
+            switchVehicleProperties.AddSwitchObservers(engineController);
         }
         private void OnTriggerEnter(Collider other)
         {

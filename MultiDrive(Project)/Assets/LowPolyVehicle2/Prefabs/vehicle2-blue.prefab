@@ -497,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1218350937860728573
 Transform:
   m_ObjectHideFlags: 0
@@ -546,9 +546,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d69e1ba5683a184cb9e292215081887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerOfGravity: {fileID: 810254867}
   healthController: {fileID: 0}
   floatingJoystick: {fileID: 0}
+  centerOfGravity: {fileID: 810254867}
+  carCollider: {fileID: 1605406472521346682}
+  skidAudio: {fileID: 0}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  moveSpeed: 15
 --- !u!114 &4055896767526186929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,9 +568,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletons:
-  - {fileID: 0}
-  - {fileID: 0}
-  muffler: {fileID: 8778631143078956289}
+  - {fileID: 7773655015372458702}
+  - {fileID: 7785688961380060646}
+  smoke: {fileID: 8778631143078956289}
 --- !u!1 &2112403574335242706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +1752,7 @@ GameObject:
   - component: {fileID: 5430939852522160234}
   - component: {fileID: 2495865008774687232}
   m_Layer: 0
-  m_Name: Muffler
+  m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

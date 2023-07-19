@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface ISoundable
 {
-    void Sound();
+    void Sound(AudioSource sound);
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 using VehicleOption;
 using Health.HUD;
 using CameraOption;
+using Audio.Engine;
 
 namespace Health
 {
@@ -14,11 +15,12 @@ namespace Health
         [SerializeField] private HUDShake hudShake;
 
         [SerializeField] private VehicleManager vehicleManager;
-        [SerializeField] private CarBurst carBurst;
+        [SerializeField] private CarExplosion carBurst;
         [SerializeField] private VehicleOption.Plane plane;
-        [SerializeField] private PlaneBurst planeBurst;
+        [SerializeField] private PlaneExplosion planeBurst;
         [SerializeField] private CameraManager cameraManager;
         [SerializeField] private ParticleSystemManager explosion;
+        [SerializeField] private EngineController engineController;
 
         private void Awake()
         {
@@ -33,6 +35,7 @@ namespace Health
             playerHealth.AddDieableObserver(planeBurst);
             playerHealth.AddDieableObserver(cameraManager);
             playerHealth.AddDieableObserver(explosion);
+            playerHealth.AddDieableObserver(engineController);
         }
 
         public void SetMaxValue(int value) => playerHealth.Health = value;
