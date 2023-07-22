@@ -497,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1218350937860728573
 Transform:
   m_ObjectHideFlags: 0
@@ -526,7 +526,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991614773304998983}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -550,11 +550,12 @@ MonoBehaviour:
   floatingJoystick: {fileID: 0}
   centerOfGravity: {fileID: 810254867}
   carCollider: {fileID: 1605406472521346682}
-  skidAudio: {fileID: 0}
+  damageSound: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  moveSpeed: 15
+  moveSpeed: 20
+  maxSpeed: 20
 --- !u!114 &4055896767526186929
 MonoBehaviour:
   m_ObjectHideFlags: 0

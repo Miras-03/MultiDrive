@@ -6,6 +6,8 @@ namespace Particle
     {
         [SerializeField] private ParticleSystem confetti;
 
-        private void OnTriggerEnter() => confetti.Play();
+        private void OnTriggerEnter() => PlayParticle();
+
+        public void PlayParticle() => confetti.Play();
     }
 }

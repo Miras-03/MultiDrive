@@ -18,11 +18,14 @@ namespace VehicleOption
         private float pitch;
         private float roll;
 
-        private const float planeSpeed = PlaneData.planeSpeed;
+
+        [Space]
+        [Header("Property of plane")]
+        [SerializeField] private float planeSpeed = 20f;
         private float smoothSpeed = PlaneData.smoothSpeed;
 
         private const float yawAmount = PlaneData.yawAmount;
-        private const float pitchAmount = PlaneData.pitchAmount;
+        [SerializeField] private float pitchAmount = 20f;
         private const float rollAmount = PlaneData.rollAmount;
 
         private float currentYawVelocity;

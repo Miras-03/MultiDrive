@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4694748173657066950}
   m_LocalRotation: {x: -0, y: -0.03751586, z: -0, w: 0.9992961}
-  m_LocalPosition: {x: -5.2404194, y: 0.02540493, z: 24.923584}
-  m_LocalScale: {x: 15, y: 5, z: 20}
+  m_LocalPosition: {x: -5.5151, y: 0.0254, z: 28.5768}
+  m_LocalScale: {x: 15, y: 5, z: 12.671576}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4694748173776381076}
@@ -5246,6 +5246,7 @@ GameObject:
   - component: {fileID: 4694748174423577551}
   - component: {fileID: 4694748174423577550}
   - component: {fileID: 4694748174423577547}
+  - component: {fileID: 1699090852}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -5359,6 +5360,21 @@ MonoBehaviour:
   car: {fileID: 0}
   vehicleManager: {fileID: 0}
   smoke: {fileID: 0}
+--- !u!114 &1699090852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4694748174423577549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbdab7da1673847409a598e9e7d406b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  congratulateSounds:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4694748174845459224
 GameObject:
   m_ObjectHideFlags: 0
@@ -5481,7 +5497,7 @@ PrefabInstance:
     - target: {fileID: 1375753587198506444, guid: 1b3fa7b98f5cbcf4da4948e2e79981d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.44042
+      value: -5.66
       objectReference: {fileID: 0}
     - target: {fileID: 1375753587198506444, guid: 1b3fa7b98f5cbcf4da4948e2e79981d9,
         type: 3}
@@ -5491,7 +5507,7 @@ PrefabInstance:
     - target: {fileID: 1375753587198506444, guid: 1b3fa7b98f5cbcf4da4948e2e79981d9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.099976
+      value: 28.27
       objectReference: {fileID: 0}
     - target: {fileID: 1375753587198506444, guid: 1b3fa7b98f5cbcf4da4948e2e79981d9,
         type: 3}

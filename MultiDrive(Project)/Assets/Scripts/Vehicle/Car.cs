@@ -8,28 +8,29 @@ namespace VehicleOption
     {
         [SerializeField] private HealthController healthController;
 
-        [Space]
+        [Space(15)]
         [Header("CarProperties")]
         [SerializeField] private FloatingJoystick floatingJoystick;
         [SerializeField] private Transform centerOfGravity;
         [SerializeField] private BoxCollider carCollider;
 
-        [Space]
+        [Space(10)]
         [Header("Sounds")]
-        [SerializeField] private AudioSource skidAudio;
         [SerializeField] private AudioSource damageSound;
-        [SerializeField] private AudioSource accelerate;
 
-        [Space]
+        [Space(5)]
         [SerializeField] private LayerMask groundLayerMask;
 
         private Vector3 moveForce;
         private Rigidbody rb;
 
-        [HideInInspector] public float moveSpeed = CarData.carSpeed;
-        private const float maxSpeed = CarData.maxSpeed;
+        [Space(10)]
+        [Header("CarSettings")]
+        public float moveSpeed = 15f;
+        public float maxSpeed = 15f;
+
         private const float drag = CarData.drag;
-        private const float steerAngle = CarData.steerAngle;
+        public float steerAngle = CarData.steerAngle;
         private const float forceNewton = CarData.forceNewton;
         private const float smoothSpeed = CarData.smoothSpeed;
 
@@ -47,11 +48,7 @@ namespace VehicleOption
 
         private void OnEnable() => ResetProperties();
 
-        public void ActivateForce()
-        {
-            Sound(accelerate);
-            rb.AddForce(transform.forward * forceNewton, ForceMode.Impulse);
-        }
+        public void ActivateForce() => rb.AddForce(transform.forward * forceNewton, ForceMode.VelocityChange);
 
         public void ResetProperties()
         {
@@ -64,6 +61,7 @@ namespace VehicleOption
         {
             moveForce += transform.forward * moveSpeed * Time.fixedDeltaTime;
             transform.position += moveForce * Time.fixedDeltaTime;
+
             Drag();
         }
 
@@ -71,11 +69,6 @@ namespace VehicleOption
         {
             steerInput = floatingJoystick.Horizontal * smoothSpeed;
             transform.Rotate(Vector3.up * steerInput * moveForce.magnitude * steerAngle * Time.fixedDeltaTime);
-
-            if (Mathf.Abs(floatingJoystick.Horizontal) > 0 && IsTouchingGround() && !skidAudio.isPlaying)
-                skidAudio.Play();
-            else if (Mathf.Abs(floatingJoystick.Horizontal) <= 0f || !IsTouchingGround() && skidAudio.isPlaying)
-                skidAudio.Stop();
         }
 
         private bool IsTouchingGround()

@@ -9,7 +9,7 @@ namespace Booster
         [Inject]
         private IEnhancable enhance;
 
-        [SerializeField] private TunelController tunelController;
+        [SerializeField] private BarrierController tunelController;
         [SerializeField] private AudioSource activationSound;
 
         private void Start() => tunelController.TurnRotateOff();

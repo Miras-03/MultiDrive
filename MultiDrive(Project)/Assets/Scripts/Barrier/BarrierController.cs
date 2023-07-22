@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Tunel
 {
-    public sealed class TunelController : MonoBehaviour
+    public sealed class BarrierController : MonoBehaviour
     {
-        private Tunel tunel;
+        private BarrierRotate tunel;
 
-        private void Awake() => tunel = GetComponent<Tunel>();
+        private void Awake() => tunel = GetComponent<BarrierRotate>();
 
         public void TurnRotateOn() => tunel.enabled = true;
 
