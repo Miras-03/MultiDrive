@@ -7,15 +7,15 @@ namespace VehicleOption
         [SerializeField] private Car car;
 
         [SerializeField] private float speed = 40f;
-        private const float lowSteerAngle = 10f;
+        [SerializeField] private float steerAngle = 10f;
 
         private void OnTriggerEnter()
         {
-            DecreaseSteerAngle();
+            ChangeSteerAngle();
             ChangeSpeed(speed);
         }
 
-        private void DecreaseSteerAngle() => car.steerAngle = lowSteerAngle;
+        private void ChangeSteerAngle() => car.steerAngle = steerAngle;
 
         public void ChangeSpeed(float speed)
         {

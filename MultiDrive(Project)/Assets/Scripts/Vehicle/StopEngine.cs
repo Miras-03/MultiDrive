@@ -13,6 +13,7 @@ namespace VehicleOption
         private void OnTriggerEnter()
         {
             ChangeSpeed(lowSpeed);
+            DisableSmoke();
             StartCoroutine(BreakDownEngine());
         }
 
@@ -25,5 +26,7 @@ namespace VehicleOption
         private void TurnOffVehicleManager() => vehicleManager.enabled = false;
 
         public void ChangeSpeed(float speed) => car.moveSpeed = speed;
+        
+        private void DisableSmoke() => car.IsFinished = true;
     }
 }

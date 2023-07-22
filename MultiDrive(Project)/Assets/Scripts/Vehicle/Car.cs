@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using Health;
 
 namespace VehicleOption
@@ -15,8 +16,14 @@ namespace VehicleOption
         [SerializeField] private BoxCollider carCollider;
 
         [Space(10)]
+        [Header("TireSmokes")]
+        [SerializeField] private ParticleSystem leftTireSmoke;
+        [SerializeField] private ParticleSystem rightTireSmoke;
+
+        [Space(10)]
         [Header("Sounds")]
         [SerializeField] private AudioSource damageSound;
+        [SerializeField] private AudioSource skidSound;
 
         [Space(5)]
         [SerializeField] private LayerMask groundLayerMask;
@@ -35,12 +42,12 @@ namespace VehicleOption
         private const float smoothSpeed = CarData.smoothSpeed;
 
         private const int damageValue = 5;
-
         private float steerInput;
+        private bool isFinished = false;
 
-        private void Awake() => rb = GetComponent<Rigidbody>();
+        public bool IsFinished { set => isFinished = value; }
 
-        private void Start()
+        private void Awake()
         {
             rb = GetComponent<Rigidbody>();
             rb.centerOfMass = centerOfGravity.localPosition;
@@ -62,6 +69,17 @@ namespace VehicleOption
             moveForce += transform.forward * moveSpeed * Time.fixedDeltaTime;
             transform.position += moveForce * Time.fixedDeltaTime;
 
+            if (IsSkidding() && !skidSound.isPlaying && !isFinished)
+            {
+                PlaySkidSound();    
+                PlaySmoke();
+            }
+            else if (IsntSkidding() || isFinished)
+            {
+                StopSkidSound();
+                StopSmoke();
+            }
+
             Drag();
         }
 
@@ -74,13 +92,29 @@ namespace VehicleOption
         private bool IsTouchingGround()
         {
             Vector3 halfExtents = carCollider.bounds.extents;
-            halfExtents.y += 0.1f; 
+            halfExtents.y += 0.1f;
             Vector3 center = carCollider.bounds.center;
             center.y -= halfExtents.y;
 
             bool isTouchingGround = Physics.OverlapBox(center, halfExtents, Quaternion.identity, groundLayerMask).Length > 0;
-
             return isTouchingGround;
+        }
+
+        private bool IsSkidding() => Mathf.Abs(steerInput) > 0.05f && IsTouchingGround();
+        private bool IsntSkidding() => Mathf.Abs(steerInput) <= 0.05f || !IsTouchingGround();
+
+        private void PlaySkidSound() => skidSound.Play();
+        private void StopSkidSound() => skidSound.Stop();
+
+        private void PlaySmoke()
+        {
+            leftTireSmoke.Play();
+            rightTireSmoke.Play();
+        }
+        private void StopSmoke()
+        {
+            leftTireSmoke.Stop();
+            rightTireSmoke.Stop();
         }
 
         private void Drag()

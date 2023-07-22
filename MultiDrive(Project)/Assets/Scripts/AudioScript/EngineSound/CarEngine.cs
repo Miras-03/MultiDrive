@@ -34,7 +34,7 @@ namespace Audio.Engine
             engine.Play();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             float currentSpeed = car.moveSpeed;
             float normalizedSpeed = Mathf.InverseLerp(minSpeed, maxSpeed, currentSpeed);
