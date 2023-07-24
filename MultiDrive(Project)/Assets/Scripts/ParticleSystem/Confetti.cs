@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Particle
 {
@@ -6,8 +7,12 @@ namespace Particle
     {
         [SerializeField] private ParticleSystem confetti;
 
-        private void OnTriggerEnter() => PlayParticle();
+        private void OnTriggerEnter() => StartCoroutine(PlayParticle());
 
-        public void PlayParticle() => confetti.Play();
+        private IEnumerator PlayParticle()
+        {
+            yield return new WaitForSeconds(1.5f);
+            confetti.Play();
+        }
     }
 }

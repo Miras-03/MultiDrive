@@ -55,8 +55,8 @@ MonoBehaviour:
   healthController: {fileID: 0}
   floatingJoystick: {fileID: 0}
   damage: {fileID: 0}
-  planeSpeed: 25
-  pitchAmount: 25
+  tunelZone: {fileID: 0}
+  planeSpeed: 35
 --- !u!114 &1233225921702290796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,7 +1152,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2

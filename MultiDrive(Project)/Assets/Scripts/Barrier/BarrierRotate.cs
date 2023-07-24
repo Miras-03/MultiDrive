@@ -8,8 +8,8 @@ namespace Tunel
 
         [Space]
         [Header("Meshes of barrier")]
-        [SerializeField] private Transform greenBarrier;
-        [SerializeField] private Transform redBarrier;
+        [SerializeField] private Transform singleBarriers;
+        [SerializeField] private Transform doubleBarriers;
 
         private void FixedUpdate()
         {
@@ -17,7 +17,7 @@ namespace Tunel
             RightRotate();
         }
 
-        public void LeftRotate() => redBarrier.Rotate(0f, speed * Time.fixedDeltaTime, 0f);
-        public void RightRotate() => greenBarrier.Rotate(0f, -speed * Time.fixedDeltaTime, 0f);
+        public void LeftRotate() => doubleBarriers.Rotate(0f, speed * Time.fixedDeltaTime, 0f);
+        public void RightRotate() => singleBarriers.Rotate(0f, -speed * Time.fixedDeltaTime, 0f);
     }
 }

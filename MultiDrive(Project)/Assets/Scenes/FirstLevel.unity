@@ -177,7 +177,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
       propertyPath: maxSpeed
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
       propertyPath: moveSpeed
@@ -207,6 +207,26 @@ PrefabInstance:
       propertyPath: healthController
       value: 
       objectReference: {fileID: 2032583164}
+    - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
+      propertyPath: decelerationCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
+      propertyPath: decelerationCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
+      propertyPath: decelerationCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
+      propertyPath: decelerationCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
+      propertyPath: decelerationCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1941571411, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
       propertyPath: m_Mass
       value: 1500
@@ -274,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 1991614773304998983, guid: b9520086e6044ec428e7142211bb0ef7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
@@ -707,7 +727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257463016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.1, y: 25.528091, z: -9}
+  m_LocalPosition: {x: 36.53, y: 25.66, z: -15.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4466,7 +4486,7 @@ GameObject:
   - component: {fileID: 1020387698}
   - component: {fileID: 1020387697}
   m_Layer: 0
-  m_Name: GreenBarrier
+  m_Name: SingleBarriers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6523,9 +6543,6 @@ MonoBehaviour:
   car: {fileID: 1941571409}
   engine: {fileID: 1041091963}
   engineLaunch: {fileID: 101254202}
-  minPitch: 0.8
-  maxPitch: 1.2
-  speedToPitchFactor: 0.01
 --- !u!1 &1582910706
 GameObject:
   m_ObjectHideFlags: 0
@@ -7431,8 +7448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  greenBarrier: {fileID: 1020387696}
-  redBarrier: {fileID: 2134334165}
+  singleBarriers: {fileID: 1020387696}
+  doubleBarriers: {fileID: 2134334165}
 --- !u!1 &1717562075
 GameObject:
   m_ObjectHideFlags: 0
@@ -8802,7 +8819,7 @@ GameObject:
   - component: {fileID: 2134334166}
   - component: {fileID: 2134334168}
   m_Layer: 0
-  m_Name: RedBarrier
+  m_Name: DoubleBarriers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9303,6 +9320,11 @@ PrefabInstance:
       propertyPath: damage
       value: 
       objectReference: {fileID: 751134536}
+    - target: {fileID: 2699822391525456093, guid: a4601cebe7248814099397cd3799c327,
+        type: 3}
+      propertyPath: tunelZone
+      value: 
+      objectReference: {fileID: 1690538529}
     - target: {fileID: 2699822391525456093, guid: a4601cebe7248814099397cd3799c327,
         type: 3}
       propertyPath: floatingJoystick

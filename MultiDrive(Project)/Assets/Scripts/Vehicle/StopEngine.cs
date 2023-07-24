@@ -25,7 +25,7 @@ namespace VehicleOption
 
         private void TurnOffVehicleManager() => vehicleManager.enabled = false;
 
-        public void ChangeSpeed(float speed) => car.moveSpeed = speed;
+        public void ChangeSpeed(float speed) => car.maxSpeed = speed;
         
         private void DisableSmoke() => car.IsFinished = true;
     }

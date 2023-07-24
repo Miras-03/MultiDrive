@@ -33,13 +33,21 @@ namespace VehicleOption
 
         [Space(10)]
         [Header("CarSettings")]
-        public float moveSpeed = 15f;
-        public float maxSpeed = 15f;
+        [HideInInspector] public float moveSpeed = CarData.moveSpeed;
+        public float maxSpeed = CarData.maxSpeed;
 
         private const float drag = CarData.drag;
         public float steerAngle = CarData.steerAngle;
+        private const float driftAmount = 0.03f;
         private const float forceNewton = CarData.forceNewton;
         private const float smoothSpeed = CarData.smoothSpeed;
+
+        [Space(10)]
+        [Header("DriftSettings")]
+        private const float maxTurnSpeed = 10f;
+        private const float accelerationRate = 5f;
+        [SerializeField] private float decelerationRate = 0.5f;
+        [SerializeField] private AnimationCurve decelerationCurve;
 
         private const int damageValue = 5;
         private float steerInput;
@@ -86,6 +94,17 @@ namespace VehicleOption
         public override void Control()
         {
             steerInput = floatingJoystick.Horizontal * smoothSpeed;
+            float turnSpeed = maxTurnSpeed * Mathf.Abs(steerInput);
+
+            float speedPercentage = moveSpeed / maxSpeed;
+
+            float decelerationFactor = decelerationCurve.Evaluate(speedPercentage);
+
+            if (IsSkidding() && !isFinished)
+                moveSpeed = Mathf.MoveTowards(moveSpeed, turnSpeed, Time.fixedDeltaTime * decelerationRate * decelerationFactor);
+            else
+                moveSpeed = Mathf.MoveTowards(moveSpeed, maxSpeed, Time.fixedDeltaTime * accelerationRate);
+
             transform.Rotate(Vector3.up * steerInput * moveForce.magnitude * steerAngle * Time.fixedDeltaTime);
         }
 
@@ -100,8 +119,8 @@ namespace VehicleOption
             return isTouchingGround;
         }
 
-        private bool IsSkidding() => Mathf.Abs(steerInput) > 0.05f && IsTouchingGround();
-        private bool IsntSkidding() => Mathf.Abs(steerInput) <= 0.05f || !IsTouchingGround();
+        private bool IsSkidding() => Mathf.Abs(steerInput) > driftAmount && IsTouchingGround();
+        private bool IsntSkidding() => Mathf.Abs(steerInput) <= driftAmount || !IsTouchingGround();
 
         private void PlaySkidSound() => skidSound.Play();
         private void StopSkidSound() => skidSound.Stop();

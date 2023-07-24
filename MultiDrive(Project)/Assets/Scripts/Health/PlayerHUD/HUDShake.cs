@@ -9,7 +9,7 @@ namespace Health.HUD
         private Slider healthBar;
 
         private const float shakeDuration = 5f;
-        private const float shakeIntensity = 3f;
+        private const float shakeIntensity = 5f;
 
         private bool isReady = false;
 

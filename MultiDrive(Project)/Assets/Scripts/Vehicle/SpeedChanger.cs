@@ -19,7 +19,7 @@ namespace VehicleOption
 
         public void ChangeSpeed(float speed)
         {
-            car.moveSpeed = speed;
+            //car.moveSpeed = speed;
             car.maxSpeed = speed;
         }
     }

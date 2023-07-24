@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class Congratulate : MonoBehaviour, ISoundable
@@ -8,8 +9,14 @@ public class Congratulate : MonoBehaviour, ISoundable
     private void OnTriggerEnter()
     {
         foreach (AudioSource source in congratulateSounds)
-            Sound(source);
+            StartCoroutine(PlaySound(source));
     }
 
     public void Sound(AudioSource sound) => sound.Play();
+
+    private IEnumerator PlaySound(AudioSource sound)
+    {
+        yield return new WaitForSeconds(1.5f);
+        Sound(sound);
+    }
 }

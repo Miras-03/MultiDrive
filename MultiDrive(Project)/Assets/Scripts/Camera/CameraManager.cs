@@ -14,11 +14,11 @@ namespace CameraOption
 
         private Transform target;
 
-        private const float farZYistance = 3f;
-        private const float farZDistance = -7f;
+        private const float planeYistance = 2f;
+        private const float planeZDistance = -5f;
 
-        private const float closerYDistance = 3f;
-        private const float closerZDistance = -5f;
+        private const float carYDistance = 3f;
+        private const float carZDistance = -7f;
 
         private const float rotationXValue = 12f;
 
@@ -44,14 +44,14 @@ namespace CameraOption
 
         public void MoveCameraCloser()
         {
-            locationOffset.z = closerZDistance;
-            locationOffset.y = closerYDistance;
+            locationOffset.z = carZDistance;
+            locationOffset.y = carYDistance;
         }
 
         public void MoveCameraAway()
         {
-            locationOffset.z = farZDistance;
-            locationOffset.y = farZYistance;
+            locationOffset.z = planeZDistance;
+            locationOffset.y = planeYistance;
         }
 
         public void OnHealthOver() => Destroy(this);

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Health;
+using ModestTree;
 
 namespace VehicleOption
 {
@@ -8,6 +9,7 @@ namespace VehicleOption
         [SerializeField] private HealthController healthController;
         [SerializeField] private FloatingJoystick floatingJoystick;
         [SerializeField] private AudioSource damage;
+        [SerializeField] private Transform tunelZone;
 
         private Rigidbody rb;
 
@@ -25,7 +27,6 @@ namespace VehicleOption
         private float smoothSpeed = PlaneData.smoothSpeed;
 
         private const float yawAmount = PlaneData.yawAmount;
-        [SerializeField] private float pitchAmount = 20f;
         private const float rollAmount = PlaneData.rollAmount;
 
         private float currentYawVelocity;
@@ -38,6 +39,15 @@ namespace VehicleOption
 
         private void OnEnable()
         {
+            ResetProperties();
+        }
+
+        private void ResetProperties()
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.x = tunelZone.position.x;
+            transform.position = newPosition;
+
             yaw = 0f;
             currentYawVelocity = 0f;
             currentPitchVelocity = 0f;
@@ -65,7 +75,7 @@ namespace VehicleOption
         private void ControlSetting()
         {
             yaw = Mathf.SmoothDamp(yaw, horizontalInput * yawAmount, ref currentYawVelocity, smoothSpeed);
-            pitch = Mathf.SmoothDamp(pitch, verticalInput * pitchAmount, ref currentPitchVelocity, smoothSpeed);
+            pitch = Mathf.SmoothDamp(pitch, verticalInput * planeSpeed, ref currentPitchVelocity, smoothSpeed);
             roll = Mathf.SmoothDamp(roll, -horizontalInput * rollAmount, ref currentRollVelocity, smoothSpeed);
 
             transform.localRotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward * roll);

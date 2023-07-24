@@ -10,9 +10,8 @@ namespace Audio.Engine
         [SerializeField] private AudioSource engine;
         [SerializeField] private AudioSource engineLaunch;
 
-        [SerializeField] private float minPitch = 0.8f;
-        [SerializeField] private float maxPitch = 1.2f;
-        [SerializeField] private float speedToPitchFactor = 0.01f;
+        private const float minPitch = 0.5f;
+        private const float maxPitch = 2.5f;
 
         private float pitch;
 

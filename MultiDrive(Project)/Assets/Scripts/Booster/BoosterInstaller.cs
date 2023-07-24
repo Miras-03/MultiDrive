@@ -10,6 +10,6 @@ public class BoosterInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<IEnhancable>().FromInstance(car).AsSingle().NonLazy();
-        Container.Bind<BoosterActivator>().FromComponentInChildren().AsSingle();
+        Container.Bind<ActivateForce>().FromComponentInChildren().AsSingle();
     }
 }
