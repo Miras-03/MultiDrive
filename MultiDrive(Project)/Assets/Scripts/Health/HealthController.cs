@@ -21,6 +21,7 @@ namespace Health
         [SerializeField] private CameraManager cameraManager;
         [SerializeField] private ParticleSystemManager explosion;
         [SerializeField] private EngineController engineController;
+        [SerializeField] private RestartGame restartGame;
 
         private void Awake()
         {
@@ -36,6 +37,7 @@ namespace Health
             playerHealth.AddDieableObserver(cameraManager);
             playerHealth.AddDieableObserver(explosion);
             playerHealth.AddDieableObserver(engineController);
+            playerHealth.AddDieableObserver(restartGame);
         }
 
         public void SetMaxValue(int value) => playerHealth.Health = value;

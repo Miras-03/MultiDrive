@@ -1,46 +1,39 @@
 using UnityEngine;
 using System.Collections;
-using Health;
 
 namespace VehicleOption
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Car : Vehicle, IEnhancable, ISoundable
+    public class Car : Vehicle
     {
-        [SerializeField] private HealthController healthController;
+        [SerializeField] private RestartGame restartGame;
 
-        [Space(15)]
+        [Space(20)]
         [Header("CarProperties")]
         [SerializeField] private FloatingJoystick floatingJoystick;
         [SerializeField] private Transform centerOfGravity;
         [SerializeField] private BoxCollider carCollider;
 
-        [Space(10)]
+        [Space(20)]
+        [Header("CarSettings")]
+        [HideInInspector] public float moveSpeed = CarData.moveSpeed;
+        public float maxSpeed = CarData.maxSpeed;
+        private const float drag = CarData.drag;
+        public float steerAngle = CarData.steerAngle;
+        private const float driftAmount = 0.03f;
+        private const float smoothSpeed = CarData.smoothSpeed;
+
+        [Space(20)]
         [Header("TireSmokes")]
         [SerializeField] private ParticleSystem leftTireSmoke;
         [SerializeField] private ParticleSystem rightTireSmoke;
 
-        [Space(10)]
+        [Space(20)]
         [Header("Sounds")]
-        [SerializeField] private AudioSource damageSound;
         [SerializeField] private AudioSource skidSound;
 
-        [Space(5)]
-        [SerializeField] private LayerMask groundLayerMask;
-
-        private Vector3 moveForce;
-        private Rigidbody rb;
-
         [Space(10)]
-        [Header("CarSettings")]
-        [HideInInspector] public float moveSpeed = CarData.moveSpeed;
-        public float maxSpeed = CarData.maxSpeed;
-
-        private const float drag = CarData.drag;
-        public float steerAngle = CarData.steerAngle;
-        private const float driftAmount = 0.03f;
-        private const float forceNewton = CarData.forceNewton;
-        private const float smoothSpeed = CarData.smoothSpeed;
+        [SerializeField] private LayerMask groundLayerMask;
 
         [Space(10)]
         [Header("DriftSettings")]
@@ -49,7 +42,13 @@ namespace VehicleOption
         [SerializeField] private float decelerationRate = 0.5f;
         [SerializeField] private AnimationCurve decelerationCurve;
 
-        private const int damageValue = 5;
+        private Vector3 moveForce;
+        private Rigidbody rb;
+
+        private float offGroundTime;
+        private bool isTimerActive;
+        [HideInInspector] public bool isPlane = false;
+
         private float steerInput;
         private bool isFinished = false;
 
@@ -62,8 +61,6 @@ namespace VehicleOption
         }
 
         private void OnEnable() => ResetProperties();
-
-        public void ActivateForce() => rb.AddForce(transform.forward * forceNewton, ForceMode.VelocityChange);
 
         public void ResetProperties()
         {
@@ -87,6 +84,14 @@ namespace VehicleOption
                 StopSkidSound();
                 StopSmoke();
             }
+
+            if (IsTouchingGround())
+            {
+                offGroundTime = 0f;
+                isTimerActive = false;
+            }
+            else if (!isTimerActive)
+                StartCoroutine(OffGroundTimer());
 
             Drag();
         }
@@ -116,8 +121,28 @@ namespace VehicleOption
             center.y -= halfExtents.y;
 
             bool isTouchingGround = Physics.OverlapBox(center, halfExtents, Quaternion.identity, groundLayerMask).Length > 0;
+
             return isTouchingGround;
         }
+
+        private IEnumerator OffGroundTimer()
+        {
+            isTimerActive = true;
+
+            const int timerWaitSeconds = 2;
+            const int waitForSeconds = 1;
+            const float perSeconds = 1f;
+
+            while (offGroundTime < timerWaitSeconds)
+            {
+                yield return new WaitForSeconds(waitForSeconds);
+                offGroundTime += perSeconds;
+            }
+
+            if (isPlane)
+                restartGame.OnHealthOver();
+        }
+
 
         private bool IsSkidding() => Mathf.Abs(steerInput) > driftAmount && IsTouchingGround();
         private bool IsntSkidding() => Mathf.Abs(steerInput) <= driftAmount || !IsTouchingGround();
@@ -141,16 +166,5 @@ namespace VehicleOption
             moveForce *= drag;
             moveForce = Vector3.ClampMagnitude(moveForce, maxSpeed);
         }
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.collider.CompareTag("Barrier"))
-            {
-                Sound(damageSound);
-                healthController.TakeDamage(damageValue);
-            }
-        }
-
-        public void Sound(AudioSource sound) => sound.Play();
     }
 }

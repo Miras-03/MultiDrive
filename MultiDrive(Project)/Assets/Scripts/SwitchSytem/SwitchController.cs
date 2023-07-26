@@ -9,7 +9,6 @@ namespace SwitchOption
         private Switcher switchVehicleProperties;
 
         [Header("SwitchObservers")]
-        [SerializeField] private SwitchCamera switchCamera;
         [SerializeField] private SwitchVehicle switchVehicle;
         [SerializeField] private SwitchPrefabOfVehicle switchPrefabOfVehicle;
         [SerializeField] private ParticleSystemManager particleSystemManager;
@@ -19,7 +18,6 @@ namespace SwitchOption
         {
             switchVehicleProperties = new Switcher();
 
-            switchVehicleProperties.AddSwitchObservers(switchCamera);
             switchVehicleProperties.AddSwitchObservers(switchVehicle);
             switchVehicleProperties.AddSwitchObservers(switchPrefabOfVehicle);
             switchVehicleProperties.AddSwitchObservers(particleSystemManager);

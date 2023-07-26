@@ -14,11 +14,8 @@ namespace CameraOption
 
         private Transform target;
 
-        private const float planeYistance = 2f;
-        private const float planeZDistance = -5f;
-
-        private const float carYDistance = 3f;
-        private const float carZDistance = -7f;
+        private const float distanceY = 3f;
+        private const float distanceZ = -7f;
 
         private const float rotationXValue = 12f;
 
@@ -26,9 +23,8 @@ namespace CameraOption
 
         private void Start()
         {
-            target = vehicleManager.currentPosition;
-            rotationOffset.x = rotationXValue;
-            MoveCameraCloser();
+            SetTarget();
+            SetCamera();
         }
 
         private void FixedUpdate()
@@ -42,17 +38,12 @@ namespace CameraOption
             transform.rotation = smoothedrotation;
         }
 
-        public void MoveCameraCloser()
+        public void SetCamera()
         {
-            locationOffset.z = carZDistance;
-            locationOffset.y = carYDistance;
+            rotationOffset.x = rotationXValue;
+            locationOffset = new Vector3(0f, distanceY, distanceZ);
         }
-
-        public void MoveCameraAway()
-        {
-            locationOffset.z = planeZDistance;
-            locationOffset.y = planeYistance;
-        }
+        private void SetTarget() => target = vehicleManager.currentPosition;
 
         public void OnHealthOver() => Destroy(this);
     }

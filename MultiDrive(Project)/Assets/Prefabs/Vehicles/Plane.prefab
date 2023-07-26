@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2013595883274650765}
   - component: {fileID: 2699822391525456093}
   - component: {fileID: 1233225921702290796}
+  - component: {fileID: 5395111500215065583}
   - component: {fileID: 7869589043895767322}
   - component: {fileID: 1243959052632145553}
   - component: {fileID: 4143608280178652589}
@@ -52,11 +53,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1685e0d0348b35d49bf8f352c3ebd01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthController: {fileID: 0}
+  car: {fileID: 0}
   floatingJoystick: {fileID: 0}
   damage: {fileID: 0}
   tunelZone: {fileID: 0}
-  planeSpeed: 35
+  planeSpeed: 25
 --- !u!114 &1233225921702290796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +74,20 @@ MonoBehaviour:
   - {fileID: 6282327224546885542}
   - {fileID: 6402568342953993389}
   smoke: {fileID: 6911084322418225763}
+--- !u!114 &5395111500215065583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205392832659332663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbb407743a7f224098034246d179af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthController: {fileID: 0}
+  damageSound: {fileID: 0}
 --- !u!65 &7869589043895767322
 BoxCollider:
   m_ObjectHideFlags: 0

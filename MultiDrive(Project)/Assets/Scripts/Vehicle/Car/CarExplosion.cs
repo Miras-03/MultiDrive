@@ -6,18 +6,22 @@ namespace VehicleOption
     public class CarExplosion : MonoBehaviour, IDieableObserver
     {
         [SerializeField] private GameObject[] skeletons;
-        [SerializeField] private GameObject smoke;
+        [SerializeField] private AudioSource skiddingSound;
+        [SerializeField] private GameObject effects;
 
         public void OnHealthOver()
         {
             if (gameObject.activeSelf)
             {
                 ChangeSkeleton();
-                TurnOffMuffler();
+                TurnOffEffects();
+                TurnOffSounds();
             }
         }
 
-        private void TurnOffMuffler() => smoke.SetActive(false);
+        private void TurnOffEffects() => effects.SetActive(false);
+
+        private void TurnOffSounds() => skiddingSound.enabled = false;
 
         private void ChangeSkeleton()
         {

@@ -1,12 +1,14 @@
 using UnityEngine;
 using Health;
-using ModestTree;
 
 namespace VehicleOption
 {
     public class Plane : Vehicle, IDieableObserver, ISoundable
     {
-        [SerializeField] private HealthController healthController;
+        [SerializeField] private Car car;
+
+        [Space(20)]
+        [Header("Plane properties")]
         [SerializeField] private FloatingJoystick floatingJoystick;
         [SerializeField] private AudioSource damage;
         [SerializeField] private Transform tunelZone;
@@ -20,9 +22,8 @@ namespace VehicleOption
         private float pitch;
         private float roll;
 
-
-        [Space]
-        [Header("Property of plane")]
+        [Space(20)]
+        [Header("PlaneSettings")]
         [SerializeField] private float planeSpeed = 20f;
         private float smoothSpeed = PlaneData.smoothSpeed;
 
@@ -33,20 +34,18 @@ namespace VehicleOption
         private float currentPitchVelocity;
         private float currentRollVelocity;
 
-        private const int damageValue = 5;
-
         private void Awake() => rb = GetComponent<Rigidbody>();
 
         private void OnEnable()
         {
             ResetProperties();
+            car.isPlane = true;
         }
+        private void OnDisable() => car.isPlane = false;
 
         private void ResetProperties()
         {
-            Vector3 newPosition = transform.position;
-            newPosition.x = tunelZone.position.x;
-            transform.position = newPosition;
+            transform.position = new Vector3(tunelZone.position.x, tunelZone.position.y, transform.position.z);
 
             yaw = 0f;
             currentYawVelocity = 0f;
@@ -79,12 +78,6 @@ namespace VehicleOption
             roll = Mathf.SmoothDamp(roll, -horizontalInput * rollAmount, ref currentRollVelocity, smoothSpeed);
 
             transform.localRotation = Quaternion.Euler(Vector3.up * yaw + Vector3.right * pitch + Vector3.forward * roll);
-        }
-
-        private void OnCollisionEnter()
-        {
-            Sound(damage);
-            healthController.TakeDamage(damageValue);
         }
 
         public void OnHealthOver() => Destroy(this);

@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FirstLevel.unity
+    path: Assets/Scenes/Level1.unity
     guid: c850ee8c3b14cc8459e7e186857cf567
   - enabled: 1
-    path: Assets/Scenes/SecondLevel.unity
+    path: Assets/Scenes/Level2.unity
     guid: 6029dcfe6a823874dafd2e2f5b44c961
   - enabled: 1
-    path: Assets/Scenes/ThirdLevel.unity
+    path: Assets/Scenes/Level3.unity
     guid: 4e339a8ab668f7d41bb5025070598b2e
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,

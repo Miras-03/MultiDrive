@@ -5,7 +5,7 @@ using Zenject;
 
 public class BoosterInstaller : MonoInstaller
 {
-    [SerializeField] private VehicleOption.Car car;
+    [SerializeField] private CarEnhance car;
 
     public override void InstallBindings()
     {

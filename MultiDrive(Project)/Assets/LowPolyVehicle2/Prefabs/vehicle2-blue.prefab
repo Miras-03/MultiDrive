@@ -524,6 +524,8 @@ GameObject:
   - component: {fileID: 1941571411}
   - component: {fileID: 1941571409}
   - component: {fileID: 4055896767526186929}
+  - component: {fileID: 1941571414}
+  - component: {fileID: 1941571415}
   m_Layer: 0
   m_Name: vehicle2-blue
   m_TagString: Car
@@ -579,20 +581,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d69e1ba5683a184cb9e292215081887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthController: {fileID: 0}
+  restartGame: {fileID: 0}
   floatingJoystick: {fileID: 0}
   centerOfGravity: {fileID: 810254867}
   carCollider: {fileID: 1605406472521346682}
+  moveSpeed: 15
+  maxSpeed: 20
+  steerAngle: 20
   leftTireSmoke: {fileID: 4153242386315386824}
   rightTireSmoke: {fileID: 2956222136750049001}
-  damageSound: {fileID: 0}
   skidSound: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  moveSpeed: 20
-  maxSpeed: 20
-  steerAngle: 20
+  decelerationRate: 0.5
+  decelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isPlane: 0
 --- !u!114 &4055896767526186929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +635,34 @@ MonoBehaviour:
   skeletons:
   - {fileID: 7773655015372458702}
   - {fileID: 7785688961380060646}
-  smoke: {fileID: 8778631143078956289}
+  skiddingSound: {fileID: 0}
+  effects: {fileID: 4535485357016963992}
+--- !u!114 &1941571414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991614773304998983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9485c1b9ecd2748843ef3169608c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1941571415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991614773304998983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bc2cf853a0eb843b944fb8437a8fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthController: {fileID: 0}
+  damageSound: {fileID: 0}
 --- !u!1 &2112403574335242706
 GameObject:
   m_ObjectHideFlags: 0

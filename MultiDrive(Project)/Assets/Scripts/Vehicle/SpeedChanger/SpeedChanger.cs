@@ -17,10 +17,6 @@ namespace VehicleOption
 
         private void ChangeSteerAngle() => car.steerAngle = steerAngle;
 
-        public void ChangeSpeed(float speed)
-        {
-            //car.moveSpeed = speed;
-            car.maxSpeed = speed;
-        }
+        public void ChangeSpeed(float speed) => car.maxSpeed = speed;
     }
 }
