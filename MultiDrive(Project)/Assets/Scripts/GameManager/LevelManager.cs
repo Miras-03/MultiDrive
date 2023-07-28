@@ -28,6 +28,18 @@ public class LevelManager : MonoBehaviour
 
     public void NextScene() => StartCoroutine(LoadScene(1));
 
+    public void CertainScene(int sceneIndex)
+    {
+        currentScene = sceneIndex;
+        StartCoroutine(LoadScene());
+    }
+
+    public void Home()
+    {
+        currentScene = 0;
+        StartCoroutine(LoadScene());
+    }
+
     private IEnumerator LoadScene(int level = 0)
     {
         yield return new WaitForSeconds(waitSeconds);

@@ -2,11 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Congratulate : MonoBehaviour, ISoundable
+public sealed class Congratulate : MonoBehaviour, ISoundable, IFinishObserver
 {
     [SerializeField] private List<AudioSource> congratulateSounds;
 
-    private void OnTriggerEnter()
+    public void Execute()
     {
         foreach (AudioSource source in congratulateSounds)
             StartCoroutine(PlaySound(source));

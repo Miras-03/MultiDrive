@@ -3,14 +3,14 @@ using System.Collections;
 
 namespace VehicleOption
 {
-    public sealed class StopEngine : MonoBehaviour, ISpeedChanger
+    public sealed class StopEngine : MonoBehaviour, ISpeedChanger, IFinishObserver
     {
         [SerializeField] private Car car;
         [SerializeField] private VehicleManager vehicleManager;
 
         private const float lowSpeed = 5f;
 
-        private void OnTriggerEnter()
+        public void Execute()
         {
             ChangeSpeed(lowSpeed);
             DisableSmoke();

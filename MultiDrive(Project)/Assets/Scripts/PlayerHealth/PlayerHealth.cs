@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Health
 {
-    public class PlayerHealth
+    public sealed class PlayerHealth
     {
         private int health;
         private List<IHealthObserver> healthChangeObservers = new List<IHealthObserver>();
@@ -26,10 +26,8 @@ namespace Health
         }
 
         public void AddChangeObserver(IHealthObserver observer) => healthChangeObservers.Add(observer);
-        public void RemoveChangeObserver(IHealthObserver observer) => healthChangeObservers.Remove(observer);
 
         public void AddDieableObserver(IDieableObserver observer) => dieableObservers.Add(observer);
-        public void RemoveDieableObservers(IDieableObserver observer) => dieableObservers.Remove(observer);
 
         private void NotifyObserversAboutChange()
         {

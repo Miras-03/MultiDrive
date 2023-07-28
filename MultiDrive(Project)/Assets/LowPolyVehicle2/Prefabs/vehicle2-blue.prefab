@@ -524,8 +524,8 @@ GameObject:
   - component: {fileID: 1941571411}
   - component: {fileID: 1941571409}
   - component: {fileID: 4055896767526186929}
-  - component: {fileID: 1941571414}
   - component: {fileID: 1941571415}
+  - component: {fileID: 1941571414}
   m_Layer: 0
   m_Name: vehicle2-blue
   m_TagString: Car
@@ -637,18 +637,6 @@ MonoBehaviour:
   - {fileID: 7785688961380060646}
   skiddingSound: {fileID: 0}
   effects: {fileID: 4535485357016963992}
---- !u!114 &1941571414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991614773304998983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e9485c1b9ecd2748843ef3169608c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1941571415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,6 +651,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthController: {fileID: 0}
   damageSound: {fileID: 0}
+--- !u!114 &1941571414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991614773304998983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9485c1b9ecd2748843ef3169608c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2112403574335242706
 GameObject:
   m_ObjectHideFlags: 0

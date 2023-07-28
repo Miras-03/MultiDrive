@@ -19,7 +19,6 @@ namespace VehicleOption
                 TurnOffEngine();
                 TurnOffMuffler();
                 ChangeSkeleton();
-                Destroy(this);
             }
         }
 

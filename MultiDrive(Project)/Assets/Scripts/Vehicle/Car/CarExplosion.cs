@@ -13,8 +13,8 @@ namespace VehicleOption
         {
             if (gameObject.activeSelf)
             {
-                ChangeSkeleton();
                 TurnOffEffects();
+                ChangeSkeleton();
                 TurnOffSounds();
             }
         }

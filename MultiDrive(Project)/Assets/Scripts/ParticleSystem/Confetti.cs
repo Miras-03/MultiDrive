@@ -3,11 +3,11 @@ using System.Collections;
 
 namespace Particle
 {
-    public class Confetti : MonoBehaviour
+    public sealed class Confetti : MonoBehaviour, IFinishObserver
     {
         [SerializeField] private ParticleSystem confetti;
 
-        private void OnTriggerEnter() => StartCoroutine(PlayParticle());
+        public void Execute() => StartCoroutine(PlayParticle());
 
         private IEnumerator PlayParticle()
         {
