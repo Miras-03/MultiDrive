@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using Zenject;
 using System.Collections;
 
-public class LevelManager : MonoBehaviour
+public sealed class LevelManager : MonoBehaviour
 {
     [SerializeField] private Animator fadeAnimator;
     private GameManager gameManager;

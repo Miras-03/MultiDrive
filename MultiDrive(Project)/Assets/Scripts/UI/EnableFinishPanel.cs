@@ -4,7 +4,7 @@ using UnityEngine;
 public sealed class EnableFinishPanel : MonoBehaviour, IFinishObserver
 {
     [SerializeField] private GameObject finishPanel;
-    private const int waitForSeconds = 5;
+    private const int waitForSeconds = 4;
 
     public void Execute() => StartCoroutine(EnablePanel());
 

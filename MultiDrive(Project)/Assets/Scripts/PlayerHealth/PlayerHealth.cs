@@ -26,7 +26,6 @@ namespace Health
         }
 
         public void AddChangeObserver(IHealthObserver observer) => healthChangeObservers.Add(observer);
-
         public void AddDieableObserver(IDieableObserver observer) => dieableObservers.Add(observer);
 
         private void NotifyObserversAboutChange()

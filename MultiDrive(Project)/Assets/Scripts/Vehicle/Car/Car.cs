@@ -133,13 +133,13 @@ namespace VehicleOption
             const int waitForSeconds = 1;
             const float perSeconds = 1f;
 
-            while (offGroundTime < timerWaitSeconds && !isPlane)
+            while (offGroundTime < timerWaitSeconds)
             {
                 yield return new WaitForSeconds(waitForSeconds);
                 offGroundTime += perSeconds;
             }
 
-            if (!isPlane)
+            if (!isPlane && !isFinished)
                 restartGame.OnHealthOver();
         }
 
