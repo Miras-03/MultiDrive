@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &5425877596201232378
 Transform:
@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5425877596201232261}
-  m_LocalRotation: {x: -0, y: -0.06553266, z: -0, w: 0.9978504}
+  m_LocalRotation: {x: 0, y: -0.06553368, z: 0, w: 0.99785036}
   m_LocalPosition: {x: -99.05, y: -38.463444, z: 1059.75}
-  m_LocalScale: {x: 10, y: 2, z: 1}
+  m_LocalScale: {x: 19.704254, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5425877597411855648}
@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 0}
-  speed: 30
-  steerAngle: 12
+  speed: 20
+  steerAngle: 10
 --- !u!114 &5425877596201232379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &5425877597411855648
 Transform:

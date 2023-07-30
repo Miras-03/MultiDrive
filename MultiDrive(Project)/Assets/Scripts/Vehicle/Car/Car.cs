@@ -29,18 +29,18 @@ namespace VehicleOption
         [SerializeField] private ParticleSystem rightTireSmoke;
 
         [Space(20)]
-        [Header("Sounds")]
-        [SerializeField] private AudioSource skidSound;
-
-        [Space(10)]
-        [SerializeField] private LayerMask groundLayerMask;
-
-        [Space(10)]
         [Header("DriftSettings")]
         private const float maxTurnSpeed = 10f;
         private const float accelerationRate = 5f;
         [SerializeField] private float decelerationRate = 0.5f;
         [SerializeField] private AnimationCurve decelerationCurve;
+
+        [Space(10)]
+        [SerializeField] private LayerMask groundLayerMask;
+
+        [Space(20)]
+        [Header("Sounds")]
+        [SerializeField] private AudioSource skidSound;
 
         private Vector3 moveForce;
         private Rigidbody rb;
@@ -129,7 +129,7 @@ namespace VehicleOption
         {
             isTimerActive = true;
 
-            const int timerWaitSeconds = 2;
+            const int timerWaitSeconds = 3;
             const int waitForSeconds = 1;
             const float perSeconds = 1f;
 

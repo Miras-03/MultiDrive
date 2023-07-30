@@ -13,6 +13,7 @@ public sealed class FinishController : MonoBehaviour
     [SerializeField] private Congratulate congratulate;
     [SerializeField] private StopEngine stopEngine;
     [SerializeField] private OpenCurrentLevel openCurrentLevel;
+    [SerializeField] private DisableHUD disableHUD;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public sealed class FinishController : MonoBehaviour
         finishTrigger.AddObservers(confetti);
         finishTrigger.AddObservers(stopEngine);
         finishTrigger.AddObservers(openCurrentLevel);
+        finishTrigger.AddObservers(disableHUD);
     }
 
     private void OnTriggerEnter() => finishTrigger.NotifyObserversAboutFinish();

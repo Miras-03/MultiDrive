@@ -5,7 +5,9 @@ using System.Collections;
 
 public sealed class LevelManager : MonoBehaviour
 {
+    [SerializeField] private InterstitialAd interstitialAd;
     [SerializeField] private Animator fadeAnimator;
+
     private GameManager gameManager;
 
     private const float waitSeconds = 1f;
@@ -24,7 +26,11 @@ public sealed class LevelManager : MonoBehaviour
         gameManager.SetCurrentLevel(currentScene);
     }
 
-    public void RestartScene() => StartCoroutine(LoadScene());
+    public void RestartScene()
+    {
+        interstitialAd.ShowAd();
+        StartCoroutine(LoadScene());
+    }
 
     public void NextScene() => StartCoroutine(LoadScene(1));
 
