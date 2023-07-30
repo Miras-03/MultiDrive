@@ -2329,7 +2329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257463016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.3, y: 25.4, z: -13.63}
+  m_LocalPosition: {x: 34.3, y: 25.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7401,6 +7401,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1535725249215225144, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: congratulateSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 768492901}
+    - target: {fileID: 1535725249215225144, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: congratulateSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 1717562077}
+    - target: {fileID: 1535725249215225145, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: playerHUD
+      value: 
+      objectReference: {fileID: 294657410}
     - target: {fileID: 6082363553277911845, guid: f47892b45036b074593d487e71029743,
         type: 3}
       propertyPath: m_Name
@@ -7471,6 +7486,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -8.05
       objectReference: {fileID: 0}
+    - target: {fileID: 6082363553504940153, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: enableIcons
+      value: 
+      objectReference: {fileID: 1504851283}
+    - target: {fileID: 6082363553534844759, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 1941571409}
+    - target: {fileID: 6082363553534844759, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: vehicleManager
+      value: 
+      objectReference: {fileID: 232935125}
     - target: {fileID: 6082363554035301991, guid: f47892b45036b074593d487e71029743,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12543,6 +12573,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 41042179}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941571412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941571415, guid: b9520086e6044ec428e7142211bb0ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 41042179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941571408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bc2cf853a0eb843b944fb8437a8fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1941571413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4055896767526186929, guid: b9520086e6044ec428e7142211bb0ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 41042179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941571408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f720ac8b6cb1fd419505be18352c6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1942819756
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,11 +12990,11 @@ MonoBehaviour:
   changeColorOfPlayerHUD: {fileID: 294657414}
   hudShake: {fileID: 294657415}
   vehicleManager: {fileID: 232935125}
-  carExplosion: {fileID: 0}
-  carDamage: {fileID: 0}
+  carExplosion: {fileID: 1941571413}
+  carDamage: {fileID: 1941571412}
   plane: {fileID: 6709538294367049325}
-  planeExplosion: {fileID: 0}
-  planeDamage: {fileID: 0}
+  planeExplosion: {fileID: 6709538294367049331}
+  planeDamage: {fileID: 6709538294367049330}
   engineController: {fileID: 759908457}
   explosion: {fileID: 995550987}
   cameraManager: {fileID: 963194229}
@@ -13671,6 +13725,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1685e0d0348b35d49bf8f352c3ebd01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6709538294367049330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5395111500215065583, guid: a4601cebe7248814099397cd3799c327,
+    type: 3}
+  m_PrefabInstance: {fileID: 5110648029684601573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6221372326358846674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbb407743a7f224098034246d179af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6709538294367049331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1233225921702290796, guid: a4601cebe7248814099397cd3799c327,
+    type: 3}
+  m_PrefabInstance: {fileID: 5110648029684601573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6221372326358846674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93588c422dac6f44caae7c6ad3896625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6713773741075182184

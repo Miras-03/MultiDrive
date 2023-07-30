@@ -1235,6 +1235,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9485c1b9ecd2748843ef3169608c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &41042181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1941571415, guid: b9520086e6044ec428e7142211bb0ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 41042179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941571408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05bc2cf853a0eb843b944fb8437a8fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &41042182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4055896767526186929, guid: b9520086e6044ec428e7142211bb0ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 41042179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941571408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f720ac8b6cb1fd419505be18352c6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &45827026
 GameObject:
   m_ObjectHideFlags: 0
@@ -12690,11 +12714,11 @@ MonoBehaviour:
   changeColorOfPlayerHUD: {fileID: 294657414}
   hudShake: {fileID: 294657415}
   vehicleManager: {fileID: 232935125}
-  carExplosion: {fileID: 0}
-  carDamage: {fileID: 0}
+  carExplosion: {fileID: 41042182}
+  carDamage: {fileID: 41042181}
   plane: {fileID: 6709538294367049325}
-  planeExplosion: {fileID: 0}
-  planeDamage: {fileID: 0}
+  planeExplosion: {fileID: 5110648029684601575}
+  planeDamage: {fileID: 5110648029684601574}
   engineController: {fileID: 759908457}
   explosion: {fileID: 995550987}
   cameraManager: {fileID: 963194229}
@@ -13610,6 +13634,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4601cebe7248814099397cd3799c327, type: 3}
+--- !u!114 &5110648029684601574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5395111500215065583, guid: a4601cebe7248814099397cd3799c327,
+    type: 3}
+  m_PrefabInstance: {fileID: 5110648029684601573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6221372326358846674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbb407743a7f224098034246d179af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5110648029684601575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1233225921702290796, guid: a4601cebe7248814099397cd3799c327,
+    type: 3}
+  m_PrefabInstance: {fileID: 5110648029684601573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6221372326358846674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93588c422dac6f44caae7c6ad3896625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6221372326358846674 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1205392832659332663, guid: a4601cebe7248814099397cd3799c327,
