@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47626090d1c11a4096966d1ef7b03f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interstitialAd: {fileID: 0}
   fadeAnimator: {fileID: 834612635}
 --- !u!1 &335669554
 GameObject:
@@ -788,7 +789,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0

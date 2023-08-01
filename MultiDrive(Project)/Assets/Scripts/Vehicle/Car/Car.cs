@@ -125,11 +125,12 @@ namespace VehicleOption
             return isTouchingGround;
         }
 
-        private IEnumerator OffGroundTimer()
+        public IEnumerator OffGroundTimer()
         {
             isTimerActive = true;
 
-            const int timerWaitSeconds = 3;
+            offGroundTime = 0f;
+            const int timerWaitSeconds = 2;
             const int waitForSeconds = 1;
             const float perSeconds = 1f;
 
@@ -142,7 +143,6 @@ namespace VehicleOption
             if (!isPlane && !isFinished)
                 restartGame.OnHealthOver();
         }
-
 
         private bool IsSkidding() => Mathf.Abs(steerInput) > driftAmount && IsTouchingGround();
         private bool IsntSkidding() => Mathf.Abs(steerInput) <= driftAmount || !IsTouchingGround();

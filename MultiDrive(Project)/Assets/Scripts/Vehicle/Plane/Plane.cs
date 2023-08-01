@@ -36,12 +36,7 @@ namespace VehicleOption
 
         private void Awake() => rb = GetComponent<Rigidbody>();
 
-        private void OnEnable()
-        {
-            ResetProperties();
-            car.isPlane = true;
-        }
-        private void OnDisable() => car.isPlane = false;
+        private void OnEnable() => ResetProperties();
 
         private void ResetProperties()
         {

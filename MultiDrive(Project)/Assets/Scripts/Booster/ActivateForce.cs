@@ -1,6 +1,7 @@
 using UnityEngine;
 using Zenject;
 using Tunel;
+using VehicleOption;
 
 namespace Booster
 {
