@@ -2140,7 +2140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257463016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.3, y: 25.58, z: -15}
+  m_LocalPosition: {x: 53.91, y: 25.58, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9074,6 +9074,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1535725249215225144, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: congratulateSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 768492901}
+    - target: {fileID: 1535725249215225144, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: congratulateSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 1717562077}
+    - target: {fileID: 1535725249215225145, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: playerHUD
+      value: 
+      objectReference: {fileID: 294657410}
     - target: {fileID: 6082363553277911845, guid: f47892b45036b074593d487e71029743,
         type: 3}
       propertyPath: m_Name
@@ -9149,6 +9164,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -8.05
       objectReference: {fileID: 0}
+    - target: {fileID: 6082363553504940153, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: enableIcons
+      value: 
+      objectReference: {fileID: 1504851283}
+    - target: {fileID: 6082363553534844759, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 1941571409}
+    - target: {fileID: 6082363553534844759, guid: f47892b45036b074593d487e71029743,
+        type: 3}
+      propertyPath: vehicleManager
+      value: 
+      objectReference: {fileID: 232935125}
     - target: {fileID: 6082363554035301991, guid: f47892b45036b074593d487e71029743,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12227,6 +12257,16 @@ PrefabInstance:
       propertyPath: car
       value: 
       objectReference: {fileID: 1941571409}
+    - target: {fileID: 5425877596201232262, guid: 3fc481eb9d53cb9438314c8625bd3600,
+        type: 3}
+      propertyPath: speed
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425877596201232262, guid: 3fc481eb9d53cb9438314c8625bd3600,
+        type: 3}
+      propertyPath: steerAngle
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5425877596201232378, guid: 3fc481eb9d53cb9438314c8625bd3600,
         type: 3}
       propertyPath: m_RootOrder

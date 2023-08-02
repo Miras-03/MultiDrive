@@ -699,6 +699,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 257463017}
     m_Modifications:
     - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
+      propertyPath: maxSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
       propertyPath: skidSound
       value: 
       objectReference: {fileID: 234159091}
@@ -710,6 +714,10 @@ PrefabInstance:
       propertyPath: restartGame
       value: 
       objectReference: {fileID: 1511989697}
+    - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
+      propertyPath: decelerationRate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
       propertyPath: floatingJoystick
       value: 

@@ -446,7 +446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
       propertyPath: decelerationRate
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1941571409, guid: b9520086e6044ec428e7142211bb0ef7, type: 3}
       propertyPath: floatingJoystick
