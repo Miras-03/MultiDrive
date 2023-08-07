@@ -6,7 +6,8 @@ namespace VehicleOption
     [RequireComponent(typeof(Rigidbody))]
     public class Car : Vehicle
     {
-        [SerializeField] private RestartGame restartGame;
+        [Header("PlayerLose")]
+        [SerializeField] private GameObject losePanel;
 
         [Space(20)]
         [Header("CarProperties")]
@@ -36,11 +37,13 @@ namespace VehicleOption
         [SerializeField] private AnimationCurve decelerationCurve;
 
         [Space(10)]
+        [Header("Layer")]
         [SerializeField] private LayerMask groundLayerMask;
 
         [Space(20)]
         [Header("Sounds")]
         [SerializeField] private AudioSource skidSound;
+        [SerializeField] private AudioSource engineSound;
 
         private Vector3 moveForce;
         private Rigidbody rb;
@@ -141,7 +144,10 @@ namespace VehicleOption
             }
 
             if (!isPlane && !isFinished)
-                restartGame.OnHealthOver();
+            {
+                engineSound.Stop();
+                losePanel.SetActive(true);
+            }
         }
 
         private bool IsSkidding() => Mathf.Abs(steerInput) > driftAmount && IsTouchingGround();
