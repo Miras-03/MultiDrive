@@ -6302,6 +6302,7 @@ GameObject:
   - component: {fileID: 1259565985}
   - component: {fileID: 1259565984}
   - component: {fileID: 1259565986}
+  - component: {fileID: 1259565987}
   m_Layer: 0
   m_Name: AdsManager
   m_TagString: Untagged
@@ -6321,7 +6322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9ab97dde8756641a7386c1396cdbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 1
 --- !u!4 &1259565985
 Transform:
   m_ObjectHideFlags: 0
@@ -6347,6 +6347,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92684c2b646da03418aa0d537978b2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1259565987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259565983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbbeedec6377c74d924bfc1c580736d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1288500540

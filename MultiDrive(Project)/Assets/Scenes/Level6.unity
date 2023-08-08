@@ -5829,6 +5829,7 @@ GameObject:
   - component: {fileID: 843456761}
   - component: {fileID: 843456760}
   - component: {fileID: 843456759}
+  - component: {fileID: 843456762}
   m_Layer: 0
   m_Name: AdsManager
   m_TagString: Untagged
@@ -5860,7 +5861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9ab97dde8756641a7386c1396cdbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testMode: 1
 --- !u!4 &843456761
 Transform:
   m_ObjectHideFlags: 0
@@ -5876,6 +5876,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843456762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843456758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbbeedec6377c74d924bfc1c580736d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &847270871
 GameObject:
   m_ObjectHideFlags: 0

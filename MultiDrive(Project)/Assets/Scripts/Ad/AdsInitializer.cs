@@ -3,10 +3,10 @@ using UnityEngine.Advertisements;
 
 public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 {
-    private const string _androidGameId = "5364967";
-    private const string _iOSGameId = "5364966";
-    private bool _testMode = false;
-    private string _gameId;
+    private const string androidGameId = "5364967";
+    private const string iOSGameId = "5364966";
+    private const bool testMode = false;
+    private string gameId;
 
     void Awake() =>  InitializeAds();
 
@@ -15,20 +15,16 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 #if UNITY_IOS
             _gameId = _iOSGameId;
 #elif UNITY_ANDROID
-        _gameId = _androidGameId;
+        gameId = androidGameId;
 #elif UNITY_EDITOR
             _gameId = _androidGameId;
 #endif
         if (!Advertisement.isInitialized && Advertisement.isSupported)
-            Advertisement.Initialize(_gameId, _testMode, this);
+            Advertisement.Initialize(gameId, testMode, this);
     }
 
 
-    public void OnInitializationComplete()
-    {
-    }
+    public void OnInitializationComplete() { }
 
-    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
-    {
-    }
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message) { }
 }
